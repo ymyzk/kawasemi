@@ -5,6 +5,7 @@ import json
 import requests
 
 from .base import BaseChannel
+from channels.exceptions import ImproperlyConfigured
 
 
 class SlackChannel(BaseChannel):
@@ -21,6 +22,11 @@ class SlackChannel(BaseChannel):
             "ICON_EMOJI": "icon_emoji",
             "ICON_URL": "icon_url"
         })
+
+        # Validation
+        if hasattr(self, "icon_emoji") and hasattr(self, "icon_url"):
+            raise ImproperlyConfigured(
+                "Must not set both ICON_EMOJI and ICON_URL")
 
     def send(self, message):
         payload = {
