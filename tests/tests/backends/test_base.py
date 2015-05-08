@@ -20,7 +20,8 @@ class BaseChannelTestCase(TestCase):
     def test_load_required_config(self):
         channel = TestChannel()
         config = {
-            "URL": "http://example.com"
+            "URL": "http://example.com",
+            "USERNAME": "testuser"
         }
         channel.load_required_config(config, {
             "URL": "url"
@@ -29,5 +30,6 @@ class BaseChannelTestCase(TestCase):
 
         with self.assertRaises(ImproperlyConfigured):
             channel.load_required_config({}, {
-                "URL": "url"
+                "URL": "url",
+                "USERNAME": "username"
             })
