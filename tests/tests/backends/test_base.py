@@ -33,3 +33,16 @@ class BaseChannelTestCase(TestCase):
                 "URL": "url",
                 "USERNAME": "username"
             })
+
+    def test_load_optional_config(self):
+        channel = TestChannel()
+        config = {
+            "URL": "http://example.com",
+            "USERNAME": "testuser"
+        }
+        channel.load_optional_config(config, {
+            "USERNAME": "username",
+            "CHANNEL": "channel"
+        })
+        self.assertEqual(channel.username, config["USERNAME"])
+        self.assertFalse(hasattr(self, "channel"))
