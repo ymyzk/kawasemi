@@ -10,6 +10,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
+    'Django>=1.7,<1.9',
     'requests>=2.7.0',
     'six>=1.9.0'
 ]
