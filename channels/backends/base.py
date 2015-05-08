@@ -4,6 +4,8 @@ from abc import ABCMeta, abstractmethod
 
 from six import add_metaclass
 
+from channels.exceptions import ImproperlyConfigured
+
 
 @add_metaclass(ABCMeta)
 class BaseChannel(object):
@@ -15,7 +17,7 @@ class BaseChannel(object):
         for key, attr in key_attrs.items():
             value = config.get(key, None)
             if value is None:
-                raise Exception
+                raise ImproperlyConfigured("Required configuration: " + key)
             setattr(self, attr, value)
 
     def load_optional_config(self, config, key_attrs):
