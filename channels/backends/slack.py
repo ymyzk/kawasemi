@@ -5,7 +5,7 @@ import json
 import requests
 
 from .base import BaseChannel
-from channels.exceptions import ImproperlyConfigured
+from channels.exceptions import HttpError, ImproperlyConfigured
 
 
 class SlackChannel(BaseChannel):
@@ -28,7 +28,7 @@ class SlackChannel(BaseChannel):
             raise ImproperlyConfigured(
                 "Must not set both ICON_EMOJI and ICON_URL")
 
-    def send(self, message):
+    def send(self, message, fail_silently=False):
         payload = {
             'text': message
         }
@@ -43,4 +43,10 @@ class SlackChannel(BaseChannel):
         data = {
             'payload': json.dumps(payload)
         }
-        requests.post(self.url, data=data)
+        try:
+            response = requests.post(self.url, data=data)
+            if response.status_code != 200:
+                raise HttpError(response.status_code)
+        except:
+            if not fail_silently:
+                raise

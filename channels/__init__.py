@@ -19,7 +19,7 @@ def _load_backend(name):
     return getattr(module, klass_name)
 
 
-def send(message):
+def send(message, fail_silently=False):
     for klass, config in CHANNELS.items():
         channel = _load_backend(klass)(config)
-        channel.send(message)
+        channel.send(message, fail_silently=fail_silently)
