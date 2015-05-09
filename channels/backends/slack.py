@@ -28,7 +28,7 @@ class SlackChannel(BaseChannel):
             raise ImproperlyConfigured(
                 "Must not set both ICON_EMOJI and ICON_URL")
 
-    def send(self, message, fail_silently=False):
+    def send(self, message, fail_silently=False, options=None):
         payload = {
             'text': message
         }

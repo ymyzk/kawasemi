@@ -10,7 +10,7 @@ from channels.exceptions import ImproperlyConfigured
 @add_metaclass(ABCMeta)
 class BaseChannel(object):
     @abstractmethod
-    def send(self, message):
+    def send(self, message, fail_silently=False, options=None):
         pass
 
     def load_required_config(self, config, key_attrs):
