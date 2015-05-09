@@ -7,16 +7,18 @@ from channels.backends.base import BaseChannel
 from channels.exceptions import ImproperlyConfigured
 
 
-class TestChannel(BaseChannel):
-    def send(self, message):
-        pass
-
-
 class BaseChannelTestCase(TestCase):
     def test_init(self):
         with self.assertRaises(TypeError):
             BaseChannel()
 
+
+class TestChannel(BaseChannel):
+    def send(self, message):
+        pass
+
+
+class TestChannelTestCase(TestCase):
     def test_load_required_config(self):
         channel = TestChannel()
         config = {
