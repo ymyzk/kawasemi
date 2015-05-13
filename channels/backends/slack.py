@@ -45,7 +45,7 @@ class SlackChannel(BaseChannel):
         }
         try:
             response = requests.post(self.url, data=data)
-            if response.status_code != 200:
+            if response.status_code != requests.codes.ok:
                 raise HttpError(response.status_code)
         except:
             if not fail_silently:
