@@ -18,13 +18,6 @@ MIDDLEWARE_CLASSES = []
 
 CHANNELS = {
     "CHANNELS": {
-        "channels.backends.hipchat.HipChatChannel": {
-            # Required
-            "API_ID": environ.get("CHANNELS_HIPCHAT_API_ID"),
-            "TOKEN": environ.get("CHANNELS_HIPCHAT_TOKEN"),
-            # Optional
-            "BASE_URL": environ.get("CHANNELS_HIPCHAT_BASE_URL", None)
-        },
         "channels.backends.slack.SlackChannel": {
             # Required
             "URL": environ.get("CHANNELS_SLACK_URL"),
