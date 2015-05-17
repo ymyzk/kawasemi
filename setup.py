@@ -7,6 +7,8 @@ except ImportError:
     from distutils.core import setup
 
 
+__version__ = '0.1.0'
+
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
@@ -26,22 +28,31 @@ extras_require = {
 }
 
 classifiers = [
+    'Development Status :: 3 - Alpha',
     'Environment :: Web Environment',
     'Framework :: Django',
     'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.2',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: Implementation :: PyPy',
     'Topic :: Internet :: WWW/HTTP',
 ]
 
 setup(
     name='django-channels',
-    version='0.1.0',
+    version=__version__,
     packages=['channels'],
     include_package_data=True,
     license='MIT',
-    description='',
+    description='A Django library for sending notifications',
     long_description=README,
     url='https://github.com/ymyzk/django-channels',
     author='Yusuke Miyazaki',
