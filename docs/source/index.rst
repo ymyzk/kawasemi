@@ -13,8 +13,6 @@ After installation and configuration, you can send notifications to HipChat or S
 
    channels.send("Sample notification.")
 
-IMAGE HERE
-
 Contents
 --------
 .. toctree::
