@@ -49,7 +49,7 @@ classifiers = [
 setup(
     name='django-channels',
     version=__version__,
-    packages=['channels'],
+    packages=['channels', 'channels.backends'],
     include_package_data=True,
     license='MIT',
     description='A Django library for sending notifications',
