@@ -1,7 +1,10 @@
+#!/usr/bin/env python
 import os
 
-
-from setuptools import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
 
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
@@ -14,6 +17,13 @@ requires = [
     'requests>=2.7.0',
     'six>=1.9.0'
 ]
+
+extras_require = {
+    'docs': [
+        'Sphinx<1.4,>=1.3',
+        'sphinx-rtd-theme<0.2,>=0.1.8'
+    ]
+}
 
 classifiers = [
     'Environment :: Web Environment',
@@ -37,5 +47,6 @@ setup(
     author='Yusuke Miyazaki',
     author_email='miyazaki.dev@gmail.com',
     install_requires=requires,
+    extras_require=extras_require,
     classifiers=classifiers
 )
