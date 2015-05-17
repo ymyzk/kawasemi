@@ -19,6 +19,7 @@ Contents
    :maxdepth: 2
 
    quickstart
+   send
    backends/index
    license
 
