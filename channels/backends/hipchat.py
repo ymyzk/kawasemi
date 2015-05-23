@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import json
 
 import requests
 
@@ -26,11 +27,17 @@ class HipChatChannel(BaseChannel):
             self.base_url, self.api_id, self.token)
 
     def send(self, message, fail_silently=False, options=None):
-        data = {
-            'message': message
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "message": message
         }
         try:
-            response = requests.post(self.url, data=data)
+            response = requests.post(self.url,
+                                     headers=headers,
+                                     data=json.dumps(payload))
             if response.status_code != requests.codes.no_content:
                 raise HttpError(response.status_code)
         except:
