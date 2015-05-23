@@ -20,7 +20,12 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
                "TOKEN": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                # Optional
                # Only for HipChat Server
-               "BASE_URL": "https://api.hipchat.com/v2/"
+               "BASE_URL": "https://api.hipchat.com/v2/",
+               # Background color for message
+               # Valid values: yellow, green, red, purple, gray, random
+               "COLOR": "random"
+               # Whether this message should trigger a user notification
+               "NOTIFY": True
            }
        }
    }
