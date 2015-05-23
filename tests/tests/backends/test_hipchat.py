@@ -21,6 +21,16 @@ class HipChatChannelTestCase(TestCase):
         with self.assertRaises(ImproperlyConfigured):
             HipChatChannel({})
 
+        with self.assertRaises(ImproperlyConfigured):
+            conf = deepcopy(config)
+            conf["COLOR"] = "blue"
+            HipChatChannel(conf)
+
+        with self.assertRaises(ImproperlyConfigured):
+            conf = deepcopy(config)
+            conf["NOTIFY"] = "true"
+            HipChatChannel(conf)
+
     def test_send(self):
         self.channel.send("Test message")
 
