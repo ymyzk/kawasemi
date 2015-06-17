@@ -9,31 +9,21 @@ from channels.exceptions import HttpError, ImproperlyConfigured
 
 
 class HipChatChannel(BaseChannel):
-    def __init__(self, config):
-        # Required
-        self.load_required_config(config, {
-            "API_ID": "api_id",
-            "TOKEN": "token"
-        })
+    colors = ("yellow", "green", "red", "purple", "gray", "random")
 
-        # Optional
-        self.load_optional_config(config, {
-            "BASE_URL": "base_url",
-            "COLOR": "color",
-            "NOTIFY": "notify"
-        })
-
-        if not hasattr(self, "base_url"):
-            self.base_url = "https://api.hipchat.com/v2/"
+    def __init__(self, api_id, token, base_url="https://api.hipchat.com/v2/",
+                 color=None, notify=None, **kwargs):
         self.url = "{0}room/{1}/notification?auth_token={2}".format(
-            self.base_url, self.api_id, self.token)
+            base_url, api_id, token)
+        self.color = color
+        self.notify = notify
 
-        colors = ("yellow", "green", "red", "purple", "gray", "random")
-        if hasattr(self, "color"):
-            if self.color not in colors:
+        # Validation
+        if self.color is not None:
+            if self.color not in self.colors:
                 raise ImproperlyConfigured("Invalid color")
 
-        if hasattr(self, "notify"):
+        if self.notify is not None:
             if not isinstance(self.notify, bool):
                 raise ImproperlyConfigured("Notify must be bool")
 
@@ -45,9 +35,9 @@ class HipChatChannel(BaseChannel):
         payload = {
             "message": message
         }
-        if hasattr(self, "color"):
+        if self.color is not None:
             payload["color"] = self.color
-        if hasattr(self, "notify"):
+        if self.notify is not None:
             payload["notify"] = self.notify
         try:
             response = requests.post(self.url,

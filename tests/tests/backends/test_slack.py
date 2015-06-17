@@ -14,25 +14,25 @@ config = settings.CHANNELS["CHANNELS"]["channels.backends.slack.SlackChannel"]
 
 class SlackChannelTestCase(TestCase):
     def setUp(self):
-        self.channel = SlackChannel(config)
+        self.channel = SlackChannel(**config)
 
     def test_init(self):
-        with self.assertRaises(ImproperlyConfigured):
-            SlackChannel({})
+        with self.assertRaises(TypeError):
+            SlackChannel(**{})
 
         with self.assertRaises(ImproperlyConfigured):
             conf = deepcopy(config)
-            conf["ICON_EMOJI"] = ":+1:"
-            conf["ICON_URL"] = "http://www.example.com/"
-            SlackChannel(conf)
+            conf["icon_emoji"] = ":+1:"
+            conf["icon_url"] = "http://www.example.com/"
+            SlackChannel(**conf)
 
     def test_send(self):
         self.channel.send("Test message")
 
     def test_send_fail(self):
         conf = deepcopy(config)
-        conf["URL"] = "https://hooks.slack.com/services/123/456/7890"
-        channel = SlackChannel(conf)
+        conf["url"] = "https://hooks.slack.com/services/123/456/7890"
+        channel = SlackChannel(**conf)
 
         with self.assertRaises(HttpError):
             channel.send("Test message", fail_silently=False)
