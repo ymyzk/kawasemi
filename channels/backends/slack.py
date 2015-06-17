@@ -38,6 +38,8 @@ class SlackChannel(BaseChannel):
             options = options["slack"]
             if "attachments" in options:
                 payload["attachments"] = options["attachments"]
+            if "unfurl_links" in options:
+                payload["unfurl_links"] = options["unfurl_links"]
         data = {
             "payload": json.dumps(payload)
         }

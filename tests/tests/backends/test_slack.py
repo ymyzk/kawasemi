@@ -27,7 +27,11 @@ class SlackChannelTestCase(TestCase):
             SlackChannel(**conf)
 
     def test_send(self):
-        self.channel.send("Test message")
+        self.channel.send("Test message.\nhttps://slack.com/")
+
+        self.channel.send("Test message. `unfurl_links=True`\n"
+                          "https://slack.com/",
+                          options={"slack": {"unfurl_links": True}})
 
         self.channel.send("Test message with attachments", options={
             "slack": {
