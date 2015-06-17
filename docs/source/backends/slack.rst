@@ -15,15 +15,15 @@ You can obtain a Webhook URL from `this page`_.
            "channels.backends.slack.SlackChannel": {
                # Required
                # Webhook URL
-               "URL": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890",
+               "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890",
                # Optional
-               "USERNAME": "django-channels",
-               # You can set either ICON_URL or ICON_EMOJI
-               "ICON_URL": "https://slack.com/img/icons/app-57.png",
-               "ICON_EMOJI": ":ghost:",
-               # Ex. 1 "CHANNEL": "#general"
-               # Ex. 2 "CHANNEL": "@username"
-               "CHANNEL": "#general"
+               "username": "django-channels",
+               # You can set either icon_url or icon_emoji
+               "icon_url": "https://slack.com/img/icons/app-57.png",
+               "icon_emoji": ":ghost:",
+               # Ex. 1 "channel": "#general"
+               # Ex. 2 "channel": "@username"
+               "channel": "#general"
            }
        }
    }
