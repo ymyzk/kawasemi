@@ -19,13 +19,14 @@ def _load_backend(name):
     return getattr(module, klass_name)
 
 
-def send(message, fail_silently=False):
+def send(message, fail_silently=False, options=None):
     """Send a notification to all configured backends
 
     :param message: A message
     :type message: str | unicode
     :type fail_silently: bool
+    :type options: dict
     """
     for klass, config in CHANNELS.items():
         channel = _load_backend(klass)(**config)
-        channel.send(message, fail_silently=fail_silently)
+        channel.send(message, fail_silently=fail_silently, options=options)
