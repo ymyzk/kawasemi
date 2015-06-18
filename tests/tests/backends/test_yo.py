@@ -29,13 +29,6 @@ class YoChannelTestCase(TestCase):
         self.channel.send("Yo Location", options={
             "yo": {"location": "35.0261581,135.7818476"}})
 
-        with self.assertRaises(HttpError):
-            self.channel.send("Yo Link", options={
-                "yo": {
-                    "link": "http://docs.justyo.co/v1.0/docs/yo",
-                    "location": "35.0261581,135.7818476"
-                }})
-
     def test_send_fail(self):
         conf = deepcopy(config)
         conf["api_token"] = "api_token"
