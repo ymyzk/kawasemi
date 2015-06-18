@@ -43,8 +43,8 @@ Installation
        CHANNELS = {
            "CHANNELS": {
                "channels.backends.hipchat.HipChatChannel": {
-                   "API_ID": "1234567",
-                   "TOKEN": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                   "api_id": "1234567",
+                   "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                }
            }
        }
@@ -56,11 +56,11 @@ Installation
         CHANNELS = {
             "CHANNELS": {
                 "channels.backends.hipchat.HipChatChannel": {
-                    "API_ID": "1234567",
-                    "TOKEN": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                    "api_id": "1234567",
+                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                 },
                 "channels.backends.slack.SlackChannel": {
-                    "URL": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890"
+                    "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890"
                 }
             }
         }

@@ -15,19 +15,37 @@ config = channels["channels.backends.hipchat.HipChatChannel"]
 
 class HipChatChannelTestCase(TestCase):
     def setUp(self):
-        self.channel = HipChatChannel(config)
+        self.channel = HipChatChannel(**config)
 
     def test_init(self):
+        with self.assertRaises(TypeError):
+            HipChatChannel(**{})
+
         with self.assertRaises(ImproperlyConfigured):
-            HipChatChannel({})
+            conf = deepcopy(config)
+            conf["color"] = "blue"
+            HipChatChannel(**conf)
+
+        with self.assertRaises(ImproperlyConfigured):
+            conf = deepcopy(config)
+            conf["notify"] = "true"
+            HipChatChannel(**conf)
 
     def test_send(self):
         self.channel.send("Test message")
 
+        self.channel.send("Test message with `color=green`.\n"
+                          "https://www.hipchat.com/",
+                          options={"hipchat": {"color": "green"}})
+
+        self.channel.send("Test message with `message_format=text`.\n"
+                          "https://www.hipchat.com/",
+                          options={"hipchat": {"message_format": "text"}})
+
     def test_send_fail(self):
         conf = deepcopy(config)
-        conf["TOKEN"] = "token"
-        channel = HipChatChannel(conf)
+        conf["token"] = "token"
+        channel = HipChatChannel(**conf)
 
         with self.assertRaises(HttpError):
             channel.send("Test message", fail_silently=False)

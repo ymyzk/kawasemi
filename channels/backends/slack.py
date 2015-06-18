@@ -9,44 +9,44 @@ from channels.exceptions import HttpError, ImproperlyConfigured
 
 
 class SlackChannel(BaseChannel):
-    def __init__(self, config):
-        # Required
-        self.load_required_config(config, {
-            "URL": "url"
-        })
-
-        # Optional
-        self.load_optional_config(config, {
-            "USERNAME": "username",
-            "CHANNEL": "channel",
-            "ICON_EMOJI": "icon_emoji",
-            "ICON_URL": "icon_url"
-        })
+    def __init__(self, url, username=None, channel=None, icon_emoji=None,
+                 icon_url=None, **kwargs):
+        self.url = url
+        self.username = username
+        self.channel = channel
+        self.icon_emoji = icon_emoji
+        self.icon_url = icon_url
 
         # Validation
-        if hasattr(self, "icon_emoji") and hasattr(self, "icon_url"):
+        if self.icon_emoji is not None and self.icon_url is not None:
             raise ImproperlyConfigured(
-                "Must not set both ICON_EMOJI and ICON_URL")
+                "Must not set both icon_emoji and icon_url")
 
     def send(self, message, fail_silently=False, options=None):
         payload = {
-            'text': message
+            "text": message
         }
-        if hasattr(self, "channel"):
+        if self.channel is not None:
             payload["channel"] = self.channel
-        if hasattr(self, "username"):
+        if self.username is not None:
             payload["username"] = self.username
-        if hasattr(self, "icon_url"):
-            payload["icon_url"] = self.icon_url
-        if hasattr(self, "icon_emoji"):
+        if self.icon_emoji is not None:
             payload["icon_emoji"] = self.icon_emoji
+        if self.icon_url is not None:
+            payload["icon_url"] = self.icon_url
+        if options is not None and "slack" in options:
+            options = options["slack"]
+            if "attachments" in options:
+                payload["attachments"] = options["attachments"]
+            if "unfurl_links" in options:
+                payload["unfurl_links"] = options["unfurl_links"]
         data = {
-            'payload': json.dumps(payload)
+            "payload": json.dumps(payload)
         }
         try:
             response = requests.post(self.url, data=data)
             if response.status_code != requests.codes.ok:
-                raise HttpError(response.status_code)
+                raise HttpError(response.status_code, response.text)
         except:
             if not fail_silently:
                 raise

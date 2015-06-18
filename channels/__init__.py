@@ -27,5 +27,5 @@ def send(message, fail_silently=False):
     :type fail_silently: bool
     """
     for klass, config in CHANNELS.items():
-        channel = _load_backend(klass)(config)
+        channel = _load_backend(klass)(**config)
         channel.send(message, fail_silently=fail_silently)

@@ -1,11 +1,11 @@
 django-channels
 ===============
 django-channels is a Django library for sending notifications.
-HipChat and Slack are supported for now.
+HipChat, Slack, and Yo are supported for now.
 
 At a Glance
 -----------
-After installation and configuration, you can send notifications to HipChat or Slack with a following simple code:
+After installation and configuration, you can send notifications to HipChat, Slack or Yo with a following simple code:
 
 .. code-block:: python
 
