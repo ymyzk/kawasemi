@@ -23,12 +23,31 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
                "base_url": "https://api.hipchat.com/v2/",
                # Background color for message
                # Valid values: yellow, green, red, purple, gray, random
-               "color": "random"
+               "color": "random",
                # Whether this message should trigger a user notification
-               "notify": True
+               "notify": True,
+               # Determines how the message is treated by HipChat server and rendered inside HipChat applications
+               # Valid values: html, text
+               "message_format": "html"
            }
        }
    }
+
+Options
+-------
+You can specify all options available in the `Room API`_. For instance:
+
+.. code-block:: python
+
+   import channels
+
+   channels.send("Sample notification.", options={
+       "hipchat": {
+           "color": "green",
+           "notify": False,
+           "message_format": "text"
+       }
+   })
 
 .. _HipChat: https://www.hipchat.com/
 .. _Room API: https://www.hipchat.com/docs/apiv2/method/send_room_notification
