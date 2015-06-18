@@ -35,6 +35,12 @@ CHANNELS = {
             "icon_url": environ.get("CHANNELS_SLACK_ICON_URL"),
             "icon_emoji": environ.get("CHANNELS_SLACK_ICON_EMOJI"),
             "channel": environ.get("CHANNELS_SLACK_CHANNEL")
+        },
+        "channels.backends.yo.YoChannel": {
+            # Required
+            "api_token": environ.get("CHANNELS_YO_API_TOKEN"),
+            # Optional
+            "username": environ.get("CHANNELS_YO_USERNAME"),
         }
     }
 }
