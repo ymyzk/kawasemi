@@ -27,7 +27,45 @@ class SlackChannelTestCase(TestCase):
             SlackChannel(**conf)
 
     def test_send(self):
-        self.channel.send("Test message")
+        self.channel.send("Test message.\nhttps://slack.com/")
+
+        self.channel.send("Test message. `unfurl_links=True`\n"
+                          "https://slack.com/",
+                          options={"slack": {"unfurl_links": True}})
+
+        self.channel.send("Test message with attachments", options={
+            "slack": {
+                "attachments": [
+                    {
+                        "fallback": "Attachment 1",
+                        "text": "Attachment 1",
+                        "color": "#36a64f"
+                    },
+                    {
+                        "fallback": "Attachment 2",
+                        "text": "Attachment 2",
+                        "color": "warning",
+                        "fields": [
+                            {
+                                "title": "Field 1",
+                                "value": "Field 1 value",
+                                "short": False
+                            },
+                            {
+                                "title": "Field 2",
+                                "value": "Field 2 value",
+                                "short": True
+                            },
+                            {
+                                "title": "Field 3",
+                                "value": "Field 3 value",
+                                "short": True
+                            }
+                        ]
+                    }
+                ]
+            }
+        })
 
     def test_send_fail(self):
         conf = deepcopy(config)

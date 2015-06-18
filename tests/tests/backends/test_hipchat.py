@@ -34,6 +34,14 @@ class HipChatChannelTestCase(TestCase):
     def test_send(self):
         self.channel.send("Test message")
 
+        self.channel.send("Test message with `color=green`.\n"
+                          "https://www.hipchat.com/",
+                          options={"hipchat": {"color": "green"}})
+
+        self.channel.send("Test message with `message_format=text`.\n"
+                          "https://www.hipchat.com/",
+                          options={"hipchat": {"message_format": "text"}})
+
     def test_send_fail(self):
         conf = deepcopy(config)
         conf["token"] = "token"

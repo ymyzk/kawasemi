@@ -11,6 +11,31 @@ You can send a notification with a following code:
 
    channels.send("Sample notification.")
 
+Options
+-------
+You can set some options for the each of backends:
+
+.. code-block:: python
+
+   import channels
+
+   channels.send("Sample notification.", options={
+       "hipchat": {
+           "color": "green"
+       },
+       "slack": {
+           "attachments": [
+               {
+                   "fallback": "Attachment 1",
+                   "text": "Attachment 1",
+                   "color": "#36a64f"
+               }
+           ]
+       }
+   })
+
+Please refer to :doc:`backends/index` for all available options.
+
 Exceptions
 ----------
 You can handle errors by using ``try`` statement:
