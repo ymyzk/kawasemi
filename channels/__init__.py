@@ -2,11 +2,6 @@
 from __future__ import unicode_literals
 import sys
 
-from django.conf import settings
-
-
-CHANNELS = settings.CHANNELS["CHANNELS"]
-
 
 def _load_module(name):
     __import__(name)
@@ -27,6 +22,8 @@ def send(message, fail_silently=False, options=None):
     :type fail_silently: bool
     :type options: dict
     """
-    for klass, config in CHANNELS.items():
+    from django.conf import settings
+
+    for klass, config in settings.CHANNELS["CHANNELS"].items():
         channel = _load_backend(klass)(**config)
         channel.send(message, fail_silently=fail_silently, options=options)
