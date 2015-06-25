@@ -20,10 +20,6 @@ class YoChannelTestCase(TestCase):
     def setUp(self):
         self.channel = YoChannel(**config)
 
-    def test_init(self):
-        with self.assertRaises(TypeError):
-            YoChannel(**{})
-
     @mock.patch("requests.post")
     def test_send(self, m):
         response = requests.Response()
