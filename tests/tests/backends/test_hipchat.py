@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from copy import deepcopy
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 from django.conf import settings
 from django.test import TestCase
+import requests
 
 from channels.backends.hipchat import HipChatChannel
 from channels.exceptions import HttpError, ImproperlyConfigured
@@ -31,7 +36,12 @@ class HipChatChannelTestCase(TestCase):
             conf["notify"] = "true"
             HipChatChannel(**conf)
 
-    def test_send(self):
+    @mock.patch("requests.post")
+    def test_send(self, m):
+        response = requests.Response()
+        response.status_code = requests.codes.no_content
+        m.return_value = response
+
         self.channel.send("Test message")
 
         self.channel.send("Test message with `color=green`.\n"
@@ -42,12 +52,13 @@ class HipChatChannelTestCase(TestCase):
                           "https://www.hipchat.com/",
                           options={"hipchat": {"message_format": "text"}})
 
-    def test_send_fail(self):
-        conf = deepcopy(config)
-        conf["token"] = "token"
-        channel = HipChatChannel(**conf)
+    @mock.patch("requests.post")
+    def test_send_fail_invalid_token(self, m):
+        response = requests.Response()
+        response.status_code = requests.codes.bad_request
+        m.return_value = response
 
         with self.assertRaises(HttpError):
-            channel.send("Test message", fail_silently=False)
+            self.channel.send("Test message", fail_silently=False)
 
-        channel.send("Test message", fail_silently=True)
+        self.channel.send("Test message", fail_silently=True)
