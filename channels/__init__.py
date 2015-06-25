@@ -3,15 +3,21 @@ from __future__ import unicode_literals
 import sys
 
 
+_BACKENDS = {}
+
 def _load_module(name):
     __import__(name)
     return sys.modules[name]
 
 
 def _load_backend(name):
-    module_name, klass_name = name.rsplit(".", 1)
-    module = _load_module(module_name)
-    return getattr(module, klass_name)
+    try:
+        return _BACKENDS[name]
+    except KeyError:
+        module_name, klass_name = name.rsplit(".", 1)
+        module = _load_module(module_name)
+        _BACKENDS[name] = getattr(module, klass_name)
+        return _BACKENDS[name]
 
 
 def send(message, fail_silently=False, options=None):
