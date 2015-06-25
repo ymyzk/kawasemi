@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import sys
 
 try:
     from setuptools import setup
@@ -7,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.2.1'
+__version__ = '0.3.0'
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -15,7 +16,6 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
-    'Django>=1.7,<1.9',
     'requests>=2.7.0',
     'six>=1.9.0'
 ]
@@ -24,8 +24,12 @@ extras_require = {
     'docs': [
         'Sphinx<1.4,>=1.3',
         'sphinx-rtd-theme<0.2,>=0.1.8'
-    ]
+    ],
+    'test': []
 }
+
+if sys.version_info < (3, 3):
+    extras_require['test'].append('mock>=1.0.1')
 
 classifiers = [
     'Development Status :: 3 - Alpha',

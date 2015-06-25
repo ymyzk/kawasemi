@@ -2,10 +2,8 @@
 from __future__ import unicode_literals
 import sys
 
-from django.conf import settings
 
-
-CHANNELS = settings.CHANNELS["CHANNELS"]
+_BACKENDS = {}
 
 
 def _load_module(name):
@@ -14,9 +12,13 @@ def _load_module(name):
 
 
 def _load_backend(name):
-    module_name, klass_name = name.rsplit(".", 1)
-    module = _load_module(module_name)
-    return getattr(module, klass_name)
+    try:
+        return _BACKENDS[name]
+    except KeyError:
+        module_name, klass_name = name.rsplit(".", 1)
+        module = _load_module(module_name)
+        _BACKENDS[name] = getattr(module, klass_name)
+        return _BACKENDS[name]
 
 
 def send(message, fail_silently=False, options=None):
@@ -27,6 +29,8 @@ def send(message, fail_silently=False, options=None):
     :type fail_silently: bool
     :type options: dict
     """
-    for klass, config in CHANNELS.items():
+    from django.conf import settings
+
+    for klass, config in settings.CHANNELS["CHANNELS"].items():
         channel = _load_backend(klass)(**config)
         channel.send(message, fail_silently=fail_silently, options=options)

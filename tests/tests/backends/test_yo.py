@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from copy import deepcopy
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 from django.conf import settings
 from django.test import TestCase
+import requests
 
 from channels.backends.yo import YoChannel
-from channels.exceptions import HttpError, ImproperlyConfigured
+from channels.exceptions import HttpError
 
 
 config = settings.CHANNELS["CHANNELS"]["channels.backends.yo.YoChannel"]
@@ -16,11 +20,12 @@ class YoChannelTestCase(TestCase):
     def setUp(self):
         self.channel = YoChannel(**config)
 
-    def test_init(self):
-        with self.assertRaises(TypeError):
-            YoChannel(**{})
+    @mock.patch("requests.post")
+    def test_send(self, m):
+        response = requests.Response()
+        response.status_code = requests.codes.ok
+        m.return_value = response
 
-    def test_send(self):
         self.channel.send("Just Yo")
 
         self.channel.send("Yo Link", options={
@@ -29,12 +34,13 @@ class YoChannelTestCase(TestCase):
         self.channel.send("Yo Location", options={
             "yo": {"location": "35.0261581,135.7818476"}})
 
-    def test_send_fail(self):
-        conf = deepcopy(config)
-        conf["api_token"] = "api_token"
-        channel = YoChannel(**conf)
+    @mock.patch("requests.post")
+    def test_send_fail(self, m):
+        response = requests.Response()
+        response.status_code = requests.codes.forbidden
+        m.return_value = response
 
         with self.assertRaises(HttpError):
-            channel.send("Yo", fail_silently=False)
+            self.channel.send("Yo", fail_silently=False)
 
-        channel.send("Yo", fail_silently=True)
+        self.channel.send("Yo", fail_silently=True)
