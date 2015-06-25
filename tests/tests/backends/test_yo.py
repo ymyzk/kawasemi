@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from unittest import mock
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 from django.conf import settings
 from django.test import TestCase
