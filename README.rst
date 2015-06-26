@@ -9,7 +9,7 @@ django-channels
 .. image:: https://travis-ci.org/ymyzk/django-channels.svg?branch=master
    :target: https://travis-ci.org/ymyzk/django-channels
    :alt: Build Status
-.. image:: https://readthedocs.org/projects/docs/badge/?version=latest
+.. image:: https://readthedocs.org/projects/django-channels/badge/?version=latest
    :target: http://django-channels.readthedocs.org/
    :alt: Documentation Status
 .. image:: https://codeclimate.com/github/ymyzk/django-channels/badges/gpa.svg
