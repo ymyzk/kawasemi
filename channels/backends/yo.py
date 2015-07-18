@@ -22,14 +22,8 @@ class YoChannel(BaseChannel):
         if self.username is not None:
             payload["username"] = self.username
 
-        if options is not None and "yo" in options:
-            options = options["yo"]
-            if "username" in options:
-                payload["username"] = options["username"]
-            if "link" in options:
-                payload["link"] = options["link"]
-            if "location" in options:
-                payload["location"] = options["location"]
+        self._set_payload_from_options(payload, options, "yo", [
+            "username", "link", "location"])
 
         try:
             response = requests.post(self.url, data=payload)
