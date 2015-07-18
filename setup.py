@@ -17,6 +17,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
     'requests>=2.7.0',
+    'requests-oauthlib>=0.5.0',
     'six>=1.9.0'
 ]
 

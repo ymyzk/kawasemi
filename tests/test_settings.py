@@ -36,6 +36,14 @@ CHANNELS = {
             "icon_emoji": environ.get("CHANNELS_SLACK_ICON_EMOJI"),
             "channel": environ.get("CHANNELS_SLACK_CHANNEL")
         },
+        "channels.backends.twitter.TwitterChannel": {
+            # Required
+            "api_key": environ.get("CHANNELS_TWITTER_API_KEY"),
+            "api_secret": environ.get("CHANNELS_TWITTER_API_SECRET"),
+            "access_token": environ.get("CHANNELS_TWITTER_ACCESS_TOKEN"),
+            "access_token_secret":
+                environ.get("CHANNELS_TWITTER_ACCESS_TOKEN_SECRET")
+        },
         "channels.backends.yo.YoChannel": {
             # Required
             "api_token": environ.get("CHANNELS_YO_API_TOKEN"),
