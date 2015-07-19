@@ -23,14 +23,14 @@ requires = [
 
 extras_require = {
     'docs': [
-        'Sphinx<1.4,>=1.3',
+        'Sphinx<1.4,>=1.3.1',
         'sphinx-rtd-theme<0.2,>=0.1.8'
     ],
     'test': []
 }
 
 if sys.version_info < (3, 3):
-    extras_require['test'].append('mock>=1.0.1')
+    extras_require['test'].append('mock>=1.2.0')
 
 classifiers = [
     'Development Status :: 3 - Alpha',
