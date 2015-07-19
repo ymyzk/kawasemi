@@ -34,17 +34,14 @@ class SlackChannel(BaseChannel):
             payload["icon_emoji"] = self.icon_emoji
         if self.icon_url is not None:
             payload["icon_url"] = self.icon_url
-        if options is not None and "slack" in options:
-            options = options["slack"]
-            if "attachments" in options:
-                payload["attachments"] = options["attachments"]
-            if "unfurl_links" in options:
-                payload["unfurl_links"] = options["unfurl_links"]
-        data = {
-            "payload": json.dumps(payload)
-        }
+
+        self._set_payload_from_options(payload, options, "slack", [
+            "attachments", "unfurl_links"])
+
         try:
-            response = requests.post(self.url, data=data)
+            response = requests.post(self.url, data={
+                "payload": json.dumps(payload)
+            })
             if response.status_code != requests.codes.ok:
                 raise HttpError(response.status_code, response.text)
         except:

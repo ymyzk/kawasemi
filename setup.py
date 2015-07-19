@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -17,19 +17,20 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 requires = [
     'requests>=2.7.0',
+    'requests-oauthlib>=0.5.0',
     'six>=1.9.0'
 ]
 
 extras_require = {
     'docs': [
-        'Sphinx<1.4,>=1.3',
+        'Sphinx<1.4,>=1.3.1',
         'sphinx-rtd-theme<0.2,>=0.1.8'
     ],
     'test': []
 }
 
 if sys.version_info < (3, 3):
-    extras_require['test'].append('mock>=1.0.1')
+    extras_require['test'].append('mock>=1.2.0')
 
 classifiers = [
     'Development Status :: 3 - Alpha',
