@@ -29,25 +29,9 @@ class TwitterChannel(BaseChannel):
             "status": message
         }
 
-        if options is not None and "twitter" in options:
-            options = options["twitter"]
-            if "in_reply_to_status_id" in options:
-                payload["in_reply_to_status_id"] =\
-                    options["in_reply_to_status_id"]
-            if "possibly_sensitive" in options:
-                payload["possibly_sensitive"] = options["possibly_sensitive"]
-            if "lat" in options:
-                payload["lat"] = options["lat"]
-            if "long" in options:
-                payload["long"] = options["long"]
-            if "place_id" in options:
-                payload["place_id"] = options["place_id"]
-            if "display_coordinates" in options:
-                payload["display_coordinates"] = options["display_coordinates"]
-            if "trim_user" in options:
-                payload["trim_user"] = options["trim_user"]
-            if "media_ids" in options:
-                payload["media_ids"] = options["media_ids"]
+        self._set_payload_from_options(payload, options, "twitter", [
+            "in_reply_to_status_id", "possibly_sensitive", "lat", "long",
+            "place_id", "display_coordinates", "trim_user", "media_ids"])
 
         auth = OAuth1(self.api_key, self.api_secret, self.access_token,
                       self.access_token_secret)

@@ -47,14 +47,8 @@ class HipChatChannel(BaseChannel):
         if self.notify is not None:
             payload["notify"] = self.notify
 
-        if options is not None and "hipchat" in options:
-            options = options["hipchat"]
-            if "color" in options:
-                payload["color"] = options["color"]
-            if "notify" in options:
-                payload["notify"] = options["notify"]
-            if "message_format" in options:
-                payload["message_format"] = options["message_format"]
+        self._set_payload_from_options(payload, options, "hipchat", [
+            "color", "notify", "message_format"])
 
         try:
             response = requests.post(self.url,
