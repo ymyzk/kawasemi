@@ -50,7 +50,7 @@ You can handle errors by using ``try`` statement:
        print("Error!!")
        print(e)
 
-You can ignore errors with ``fail_silently`` argument:
+You can ignore errors with ``fail_silently`` parameter:
 
 .. code-block:: python
 
