@@ -3,7 +3,7 @@ Sending Notification
 
 Simple Notification
 -------------------
-You can send a notification with a following code:
+You can send a notification to all configured channels with a following code:
 
 .. code-block:: python
 
@@ -57,3 +57,29 @@ You can ignore errors with ``fail_silently`` parameter:
    import channels
 
    channels.send("Exceptions are ignored.", fail_silently=True)
+
+Send to a Specific Channel
+--------------------------
+By default, notifications are sent to all configured channels.
+You can send notifications to a channel with ``channel`` parameter.
+
+Example settings:
+
+.. code-block:: python
+
+   CHANNELS = {
+       "CHANNELS": {
+           "channel_1": {
+               # ...
+           },
+           "channel_2": {
+               # ...
+           }
+       }
+   }
+
+Send a notification to ``channel_1``:
+
+.. code-block:: python
+
+   channel.send("sample notification", channel="channel_1")
