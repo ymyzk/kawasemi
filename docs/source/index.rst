@@ -29,3 +29,11 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Links
+-----
+* `Documentation`_
+* `GitHub`_
+
+.. _Documentation: http://django-channels.readthedocs.org/
+.. _GitHub: https://github.com/ymyzk/django-channels
