@@ -13,8 +13,7 @@ from channels.backends.twitter import TwitterChannel
 from channels.exceptions import HttpError
 
 
-channels = settings.CHANNELS["CHANNELS"]
-config = channels["channels.backends.twitter.TwitterChannel"]
+config = settings.CHANNELS["CHANNELS"]["twitter"]
 
 
 class TwitterChannelTestCase(TestCase):

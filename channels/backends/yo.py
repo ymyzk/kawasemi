@@ -10,7 +10,7 @@ from channels.exceptions import HttpError
 class YoChannel(BaseChannel):
     url = "https://api.justyo.co/yo/"
 
-    def __init__(self, api_token, username=None):
+    def __init__(self, api_token, username=None, *args, **kwargs):
         self.api_token = api_token
         self.username = username
 
