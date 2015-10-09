@@ -12,7 +12,8 @@ You can obtain a Webhook URL from `this page`_.
 
    CHANNELS = {
        "CHANNELS": {
-           "channels.backends.slack.SlackChannel": {
+           "slack": {
+               "_backend": "channels.backends.slack.SlackChannel",
                # Required
                # Webhook URL
                "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890",

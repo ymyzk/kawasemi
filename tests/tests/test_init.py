@@ -8,12 +8,12 @@ import channels
 class ChannelsModuleTestCase(TestCase):
     def test_load_module(self):
         import channels.backends.slack
-        name = "channels.backends.slack"
-        module = channels._load_module(name)
+        module_name = "channels.backends.slack"
+        module = channels._load_module(module_name)
         self.assertEqual(module, channels.backends.slack)
 
     def test_load_backend(self):
         from channels.backends.slack import SlackChannel
-        name = "channels.backends.slack.SlackChannel"
-        klass = channels._load_backend(name)
+        klass_name = "channels.backends.slack.SlackChannel"
+        klass = channels._load_backend(klass_name)
         self.assertEqual(klass, SlackChannel)

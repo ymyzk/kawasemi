@@ -18,7 +18,8 @@ MIDDLEWARE_CLASSES = []
 
 CHANNELS = {
     "CHANNELS": {
-        "channels.backends.hipchat.HipChatChannel": {
+        "hipchat": {
+            "_backend": "channels.backends.hipchat.HipChatChannel",
             # Required
             "api_id": environ.get("CHANNELS_HIPCHAT_API_ID"),
             "token": environ.get("CHANNELS_HIPCHAT_TOKEN"),
@@ -27,7 +28,8 @@ CHANNELS = {
             "color": environ.get("CHANNELS_HIPCHAT_COLOR"),
             "notify": environ.get("CHANNELS_HIPCHAT_NOTIFY") == "True"
         },
-        "channels.backends.slack.SlackChannel": {
+        "slack": {
+            "_backend": "channels.backends.slack.SlackChannel",
             # Required
             "url": environ.get("CHANNELS_SLACK_URL"),
             # Optional
@@ -36,7 +38,8 @@ CHANNELS = {
             "icon_emoji": environ.get("CHANNELS_SLACK_ICON_EMOJI"),
             "channel": environ.get("CHANNELS_SLACK_CHANNEL")
         },
-        "channels.backends.twitter.TwitterChannel": {
+        "twitter": {
+            "_backend": "channels.backends.twitter.TwitterChannel",
             # Required
             "api_key": environ.get("CHANNELS_TWITTER_API_KEY"),
             "api_secret": environ.get("CHANNELS_TWITTER_API_SECRET"),
@@ -44,11 +47,12 @@ CHANNELS = {
             "access_token_secret":
                 environ.get("CHANNELS_TWITTER_ACCESS_TOKEN_SECRET")
         },
-        "channels.backends.yo.YoChannel": {
+        "yo": {
+            "_backend": "channels.backends.yo.YoChannel",
             # Required
             "api_token": environ.get("CHANNELS_YO_API_TOKEN"),
             # Optional
-            "username": environ.get("CHANNELS_YO_USERNAME"),
+            "username": environ.get("CHANNELS_YO_USERNAME")
         }
     }
 }

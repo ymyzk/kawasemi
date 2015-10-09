@@ -12,7 +12,8 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
 
    CHANNELS = {
        "CHANNELS": {
-           "channels.backends.hipchat.HipChatChannel": {
+           "hipchat": {
+               "_backend": "channels.backends.hipchat.HipChatChannel",
                # Required
                # Room API ID
                "api_id": "1234567",

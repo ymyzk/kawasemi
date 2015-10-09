@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 import sys
+
+from .exceptions import ImproperlyConfigured
 
 
 _BACKENDS = {}
@@ -31,6 +33,10 @@ def send(message, fail_silently=False, options=None):
     """
     from django.conf import settings
 
-    for klass, config in settings.CHANNELS["CHANNELS"].items():
-        channel = _load_backend(klass)(**config)
+    for _, config in settings.CHANNELS["CHANNELS"].items():
+        if "_backend" not in config:
+            raise ImproperlyConfigured(
+                "Specify the backend class in the channel configuration")
+
+        channel = _load_backend(config["_backend"])(**config)
         channel.send(message, fail_silently=fail_silently, options=options)

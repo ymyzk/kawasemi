@@ -13,7 +13,8 @@ class HipChatChannel(BaseChannel):
     message_formats = ("html", "text")
 
     def __init__(self, api_id, token, base_url="https://api.hipchat.com/v2/",
-                 color=None, notify=None, message_format="html", **kwargs):
+                 color=None, notify=None, message_format="html", *args,
+                 **kwargs):
         self.url = "{0}room/{1}/notification?auth_token={2}".format(
             base_url, api_id, token)
         self.color = color

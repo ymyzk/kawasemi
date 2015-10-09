@@ -11,7 +11,8 @@ from channels.exceptions import HttpError
 class TwitterChannel(BaseChannel):
     url = "https://api.twitter.com/1.1/statuses/update.json"
 
-    def __init__(self, api_key, api_secret, access_token, access_token_secret):
+    def __init__(self, api_key, api_secret, access_token, access_token_secret,
+                 *args, **kwargs):
         """A channel for posting a tweet
 
         :type api_key: unicode | str

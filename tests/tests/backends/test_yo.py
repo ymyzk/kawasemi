@@ -13,7 +13,7 @@ from channels.backends.yo import YoChannel
 from channels.exceptions import HttpError
 
 
-config = settings.CHANNELS["CHANNELS"]["channels.backends.yo.YoChannel"]
+config = settings.CHANNELS["CHANNELS"]["yo"]
 
 
 class YoChannelTestCase(TestCase):
