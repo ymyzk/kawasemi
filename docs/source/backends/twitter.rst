@@ -12,7 +12,8 @@ You can obtain keys and access tokens from `Twitter Application Management`_.
 
    CHANNELS = {
        "CHANNELS": {
-           "channels.backends.twitter.TwitterChannel": {
+           "twitter": {
+                "_backend": "channels.backends.twitter.TwitterChannel",
                 # Required
                 # Consumer Key (API Key)
                 "api_key": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",

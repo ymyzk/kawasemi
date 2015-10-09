@@ -12,7 +12,8 @@ You can obtain an API token from `Yo Dashboard`_.
 
    CHANNELS = {
        "CHANNELS": {
-           "channels.backends.yo.YoChannel": {
+           "yo": {
+               "_backend": "channels.backends.yo.YoChannel",
                # Required
                # Your API token
                "api_token": environ.get("CHANNELS_YO_API_TOKEN"),

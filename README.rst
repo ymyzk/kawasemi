@@ -33,6 +33,32 @@ Slack, Twitter, or Yo with a following simple code:
 
    channels.send("Sample notification.")
 
+See `Quickstart`_ page for more details.
+
+Requirements
+------------
+
+Python
+^^^^^^
+* Python 2.7+
+* Python 3.2+
+* PyPy
+* PyPy3
+
+Django
+^^^^^^
+* Django 1.7
+* Django 1.8
+* Django 1.9 (experimental)
+
+
+Installation
+------------
+
+.. code-block:: shell
+
+   pip install django-channels
+
 Links
 -----
 * `Documentation`_
@@ -40,3 +66,4 @@ Links
 
 .. _Documentation: http://django-channels.readthedocs.org/
 .. _GitHub: https://github.com/ymyzk/django-channels
+.. _Quickstart: http://django-channels.readthedocs.org/en/latest/quickstart.html

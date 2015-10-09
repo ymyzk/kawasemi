@@ -14,6 +14,22 @@ you can send notifications to HipChat, Slack, Twitter, or Yo with a following si
 
    channels.send("Sample notification.")
 
+Requirements
+------------
+
+Python
+^^^^^^
+* Python 2.7+
+* Python 3.2+
+* PyPy
+* PyPy3
+
+Django
+^^^^^^
+* Django 1.7
+* Django 1.8
+* Django 1.9 (experimental)
+
 Contents
 --------
 .. toctree::
@@ -29,3 +45,11 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Links
+-----
+* `Documentation`_
+* `GitHub`_
+
+.. _Documentation: http://django-channels.readthedocs.org/
+.. _GitHub: https://github.com/ymyzk/django-channels

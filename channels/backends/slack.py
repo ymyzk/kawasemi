@@ -10,7 +10,7 @@ from channels.exceptions import HttpError, ImproperlyConfigured
 
 class SlackChannel(BaseChannel):
     def __init__(self, url, username=None, channel=None, icon_emoji=None,
-                 icon_url=None, **kwargs):
+                 icon_url=None, *args, **kwargs):
         self.url = url
         self.username = username
         self.channel = channel

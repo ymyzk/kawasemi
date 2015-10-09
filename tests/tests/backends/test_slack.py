@@ -14,7 +14,7 @@ from channels.backends.slack import SlackChannel
 from channels.exceptions import HttpError, ImproperlyConfigured
 
 
-config = settings.CHANNELS["CHANNELS"]["channels.backends.slack.SlackChannel"]
+config = settings.CHANNELS["CHANNELS"]["slack"]
 
 
 class SlackChannelTestCase(TestCase):

@@ -14,8 +14,7 @@ from channels.backends.hipchat import HipChatChannel
 from channels.exceptions import HttpError, ImproperlyConfigured
 
 
-channels = settings.CHANNELS["CHANNELS"]
-config = channels["channels.backends.hipchat.HipChatChannel"]
+config = settings.CHANNELS["CHANNELS"]["hipchat"]
 
 
 class HipChatChannelTestCase(TestCase):

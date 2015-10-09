@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.4.0'
+__version__ = '0.5.0'
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -37,7 +37,6 @@ classifiers = [
     'Environment :: Web Environment',
     'Framework :: Django',
     'Intended Audience :: Developers',
-    'Operating System :: OS Independent',
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
@@ -47,6 +46,7 @@ classifiers = [
     'Programming Language :: Python :: 3.2',
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: Implementation :: PyPy',
     'Topic :: Internet :: WWW/HTTP',
 ]
