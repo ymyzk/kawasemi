@@ -42,7 +42,8 @@ Installation
 
        CHANNELS = {
            "CHANNELS": {
-               "channels.backends.hipchat.HipChatChannel": {
+               "hipchat": {
+                   "_backend": "channels.backends.hipchat.HipChatChannel",
                    "api_id": "1234567",
                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                }
@@ -51,19 +52,41 @@ Installation
 
   * You can use one or more channels. To send notifications to both HipChat and Slack:
 
-     .. code-block:: python
+    .. code-block:: python
 
-        CHANNELS = {
-            "CHANNELS": {
-                "channels.backends.hipchat.HipChatChannel": {
-                    "api_id": "1234567",
-                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-                },
-                "channels.backends.slack.SlackChannel": {
-                    "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890"
-                }
-            }
-        }
+       CHANNELS = {
+           "CHANNELS": {
+               "hipchat": {
+                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                   "api_id": "1234567",
+                   "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+               },
+               "slack": {
+                   "_backend": "channels.backends.slack.SlackChannel",
+                   "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890"
+               }
+           }
+       }
+
+  * Of course, you can send a message to two different rooms simultaneously.
+    To send notifications to two different HipChat rooms:
+
+    .. code-block:: python
+
+       CHANNELS = {
+           "CHANNELS": {
+               "hipchat_first": {
+                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                   "api_id": "1234567",
+                   "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+               },
+               "hipchat_second": {
+                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                   "api_id": "3456789",
+                   "token": "abcdefghijklmnopqrstuvwxyz0987654321"
+               }
+           }
+       }
 
 Usage
 -----
