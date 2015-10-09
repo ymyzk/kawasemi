@@ -1,21 +1,6 @@
 Quickstart
 ==========
 
-Requirements
-------------
-
-Python
-^^^^^^
-* Python 2.7+
-* Python 3.2+
-* PyPy
-* PyPy3
-
-Django
-^^^^^^
-* Django 1.7
-* Django 1.8
-
 Installation
 ------------
 
