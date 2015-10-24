@@ -18,6 +18,9 @@ django-channels
 .. image:: https://coveralls.io/repos/ymyzk/django-channels/badge.svg?branch=master
    :target: https://coveralls.io/r/ymyzk/django-channels?branch=master
    :alt: Coverage Status
+.. image:: https://requires.io/github/ymyzk/django-channels/requirements.svg?branch=master
+   :target: https://requires.io/github/ymyzk/django-channels/requirements/?branch=master
+   :alt: Requirements Status
 
 django-channels is a Django library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
