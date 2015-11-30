@@ -22,6 +22,10 @@ class YoChannel(BaseChannel):
         if self.username is not None:
             payload["username"] = self.username
 
+        if message is not None:
+            # 30 characters max
+            payload["text"] = message
+
         self._set_payload_from_options(payload, options, "yo", [
             "username", "link", "location"])
 
