@@ -52,8 +52,7 @@ Django
 ^^^^^^
 * Django 1.7
 * Django 1.8
-* Django 1.9 (experimental)
-
+* Django 1.9
 
 Installation
 ------------
