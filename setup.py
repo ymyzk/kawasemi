@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.5.0'
+__version__ = '0.6.0'
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -23,8 +23,8 @@ requires = [
 
 extras_require = {
     'docs': [
-        'Sphinx<1.4,>=1.3.1',
-        'sphinx-rtd-theme<0.2,>=0.1.8'
+        'Sphinx>=1.3.1,<1.4',
+        'sphinx-rtd-theme>=0.1.8,<0.2'
     ],
     'test': []
 }

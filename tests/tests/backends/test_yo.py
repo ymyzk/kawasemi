@@ -26,12 +26,18 @@ class YoChannelTestCase(TestCase):
         response.status_code = requests.codes.ok
         m.return_value = response
 
-        self.channel.send("Just Yo")
+        # Just Yo
+        self.channel.send(None)
 
-        self.channel.send("Yo Link", options={
+        # Yo with text
+        self.channel.send("🍣")
+
+        # Yo Link
+        self.channel.send(None, options={
             "yo": {"link": "http://docs.justyo.co/v1.0/docs/yo"}})
 
-        self.channel.send("Yo Location", options={
+        # Yo Location
+        self.channel.send(None, options={
             "yo": {"location": "35.0261581,135.7818476"}})
 
     @mock.patch("requests.post")
@@ -41,6 +47,6 @@ class YoChannelTestCase(TestCase):
         m.return_value = response
 
         with self.assertRaises(HttpError):
-            self.channel.send("Yo", fail_silently=False)
+            self.channel.send(None, fail_silently=False)
 
-        self.channel.send("Yo", fail_silently=True)
+        self.channel.send(None, fail_silently=True)

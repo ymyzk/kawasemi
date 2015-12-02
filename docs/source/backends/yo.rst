@@ -24,6 +24,18 @@ You can obtain an API token from `Yo Dashboard`_.
        }
    }
 
+Text
+----
+You can send Yo with text (30 characters max) with Yo API v2.0.
+
+.. code-block:: python
+
+   import channels
+
+   # Yo with text
+   self.channel.send("text")
+
+
 Options
 -------
 You can send Yo Location or Yo Link by specifying options. For example:
@@ -32,13 +44,15 @@ You can send Yo Location or Yo Link by specifying options. For example:
 
    import channels
 
-   self.channel.send("Yo Link", options={
+   # Yo Link
+   self.channel.send(None, options={
        "yo": {
            "link": "http://docs.justyo.co/v1.0/docs/yo"
        }
    })
 
-   self.channel.send("Yo Location", options={
+   # Yo Location
+   self.channel.send(None, options={
        "yo": {
            "location": "35.0261581,135.7818476"
        }
@@ -47,5 +61,5 @@ You can send Yo Location or Yo Link by specifying options. For example:
 Please note that you can only send link or location, but not both.
 
 .. _Yo: https://www.justyo.co
-.. _API: http://docs.justyo.co/v1.0/docs/yo
+.. _API: http://docs.justyo.co/v2.0/docs/yo
 .. _Yo Dashboard: https://dev.justyo.co
