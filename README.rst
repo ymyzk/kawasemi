@@ -22,6 +22,9 @@ django-channels
    :target: https://requires.io/github/ymyzk/django-channels/requirements/?branch=master
    :alt: Requirements Status
 
+**Note:** This should not be confused with the official Django Channels
+project which you can see at https://channels.readthedocs.io/en/latest/
+
 django-channels is a Django library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
 
