@@ -3,9 +3,6 @@ django-channels
 .. image:: https://badge.fury.io/py/django-channels.svg
    :target: https://pypi.python.org/pypi/django-channels/
    :alt: PyPI version
-.. image:: https://img.shields.io/pypi/dm/django-channels.svg
-   :target: https://pypi.python.org/pypi/django-channels/
-   :alt: Downloads
 .. image:: https://travis-ci.org/ymyzk/django-channels.svg?branch=master
    :target: https://travis-ci.org/ymyzk/django-channels
    :alt: Build Status
@@ -22,11 +19,11 @@ django-channels
    :target: https://requires.io/github/ymyzk/django-channels/requirements/?branch=master
    :alt: Requirements Status
 
-**Note:** This should not be confused with the official Django Channels
-project which you can see at https://channels.readthedocs.io/en/latest/
-
 django-channels is a Django library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
+
+**Note:** This should not be confused with the official Django Channels
+project which you can see at https://channels.readthedocs.io/.
 
 At a Glance
 -----------
