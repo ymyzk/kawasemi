@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.6.0'
+__version__ = '0.6.1'
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -43,7 +43,6 @@ classifiers = [
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.2',
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
