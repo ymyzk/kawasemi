@@ -1,25 +1,29 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 import sys
-from typing import Any, Dict  # noqa: F401
+from typing import Dict, Optional, Text  # noqa: F401
 
+from .backends.base import BaseChannel  # noqa: F401
 from .exceptions import ImproperlyConfigured
+from .types import SendOptions  # noqa: F401
 
 
-_BACKENDS = {}  # type: Dict[str, Any]
+_BACKENDS = {}  # type: Dict[str, BaseChannel]
 
 
 def _load_module(name):
+    # type: (str) -> BaseChannel
     __import__(name)
     return sys.modules[name]
 
 
 def _load_backend(name):
+    # type: (str) -> BaseChannel
     try:
         return _BACKENDS[name]
     except KeyError:
         module_name, klass_name = name.rsplit(".", 1)
-        module = _load_module(module_name)
+        module = _load_module(str(module_name))
         _BACKENDS[name] = getattr(module, klass_name)
         return _BACKENDS[name]
 
@@ -48,12 +52,10 @@ def _send(message, settings, channel_name, fail_silently, options):
 
 
 def send(message, channel=None, fail_silently=False, options=None):
+    # type: (Text, Optional[str], bool, Optional[SendOptions]) -> None
     """Send a notification to channels
 
     :param message: A message
-    :type message: str | unicode
-    :type fail_silently: bool
-    :type options: dict
     """
     settings = _load_django_settings()
     _send(message, settings, channel, fail_silently, options)

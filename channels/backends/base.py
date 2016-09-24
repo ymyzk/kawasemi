@@ -4,11 +4,14 @@ from abc import ABCMeta, abstractmethod
 
 from six import add_metaclass
 
+from ..types import SendOptions  # noqa: F401
+
 
 @add_metaclass(ABCMeta)
 class BaseChannel(object):
     @abstractmethod
     def send(self, message, fail_silently=False, options=None):
+        # type: (Text, bool, Optional[SendOptions]) -> None
         pass
 
     @staticmethod
