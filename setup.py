@@ -1,19 +1,15 @@
 #!/usr/bin/env python
-import os
+from codecs import open
+from os import path
 import sys
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
 
 
-__version__ = '0.6.1'
+here = path.abspath(path.dirname(__file__))
 
-with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
-    README = readme.read()
-
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 requires = [
     'requests>=2.7.0',
@@ -29,6 +25,7 @@ extras_require = {
     'test': []
 }
 
+# TODO: Replace with environment markers in the future
 if sys.version_info < (3, 3):
     extras_require['test'].append('mock>=1.2.0')
 
@@ -52,12 +49,12 @@ classifiers = [
 
 setup(
     name='django-channels',
-    version=__version__,
+    version='0.6.1',
     packages=['channels', 'channels.backends'],
     include_package_data=True,
     license='MIT',
     description='A Django library for sending notifications',
-    long_description=README,
+    long_description=long_description,
     url='https://github.com/ymyzk/django-channels',
     author='Yusuke Miyazaki',
     author_email='miyazaki.dev@gmail.com',
