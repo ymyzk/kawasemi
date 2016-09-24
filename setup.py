@@ -18,6 +18,7 @@ requires = [
 ]
 
 extras_require = {
+    ':python_version < "3.5"': ['typing'],
     'docs': [
         'Sphinx>=1.3.1,<1.4',
         'sphinx-rtd-theme>=0.1.8,<0.2'

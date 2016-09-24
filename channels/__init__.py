@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 import sys
+from typing import Any, Dict  # noqa: F401
 
 from .exceptions import ImproperlyConfigured
 
 
-_BACKENDS = {}
+_BACKENDS = {}  # type: Dict[str, Any]
 
 
 def _load_module(name):

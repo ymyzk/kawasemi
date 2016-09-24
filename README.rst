@@ -61,6 +61,13 @@ Installation
 
    pip install django-channels
 
+Note: Please use the latest version of setuptools & pip
+
+.. code-block:: shell
+
+   pip install -U setuptools pip
+
+
 Links
 -----
 * `Documentation`_

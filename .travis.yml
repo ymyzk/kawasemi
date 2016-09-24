@@ -2,6 +2,7 @@ language: python
 python:
   - 3.5
 install:
+  - pip install -U pip setuptools wheel
   - pip install 'tox>=2.0.0,<3.0.0'
 script:
   - tox
