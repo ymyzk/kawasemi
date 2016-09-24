@@ -23,12 +23,9 @@ extras_require = {
         'Sphinx>=1.4,<1.5',
         'sphinx-rtd-theme>=0.1.9,<0.2'
     ],
-    'test': []
+    'test': [],
+    'test:python_version < "3.3"': ['mock>=2.0.0,<3.0.0']
 }
-
-# TODO: Replace with environment markers in the future
-if sys.version_info < (3, 3):
-    extras_require['test'].append('mock>=1.2.0')
 
 classifiers = [
     'Development Status :: 3 - Alpha',
