@@ -47,7 +47,7 @@ classifiers = [
 
 setup(
     name='django-channels',
-    version='0.6.1',
+    version='0.7.0',
     packages=['channels', 'channels.backends'],
     include_package_data=True,
     license='MIT',
