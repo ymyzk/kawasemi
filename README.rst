@@ -7,7 +7,7 @@ django-channels
    :target: https://travis-ci.org/ymyzk/django-channels
    :alt: Build Status
 .. image:: https://readthedocs.org/projects/django-channels/badge/?version=latest
-   :target: http://django-channels.readthedocs.org/
+   :target: https://django-channels.readthedocs.io/
    :alt: Documentation Status
 .. image:: https://codeclimate.com/github/ymyzk/django-channels/badges/gpa.svg
    :target: https://codeclimate.com/github/ymyzk/django-channels
@@ -73,6 +73,6 @@ Links
 * `Documentation`_
 * `GitHub`_
 
-.. _Documentation: http://django-channels.readthedocs.org/
+.. _Documentation: https://django-channels.readthedocs.io/
 .. _GitHub: https://github.com/ymyzk/django-channels
-.. _Quickstart: http://django-channels.readthedocs.org/en/latest/quickstart.html
+.. _Quickstart: https://django-channels.readthedocs.io/en/latest/quickstart.html
