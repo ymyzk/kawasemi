@@ -10,8 +10,8 @@ from django.conf import settings
 from django.test import TestCase
 import requests
 
-from channels.backends.slack import SlackChannel
-from channels.exceptions import HttpError, ImproperlyConfigured
+from kawasemi.backends.slack import SlackChannel
+from kawasemi.exceptions import HttpError, ImproperlyConfigured
 
 
 config = settings.CHANNELS["CHANNELS"]["slack"]

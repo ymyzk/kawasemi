@@ -9,8 +9,8 @@ from django.conf import settings
 from django.test import TestCase
 import requests
 
-from channels.backends.yo import YoChannel
-from channels.exceptions import HttpError
+from kawasemi.backends.yo import YoChannel
+from kawasemi.exceptions import HttpError
 
 
 config = settings.CHANNELS["CHANNELS"]["yo"]

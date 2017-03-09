@@ -9,8 +9,8 @@ from django.conf import settings
 from django.test import TestCase
 import requests
 
-from channels.backends.twitter import TwitterChannel
-from channels.exceptions import HttpError
+from kawasemi.backends.twitter import TwitterChannel
+from kawasemi.exceptions import HttpError
 
 
 config = settings.CHANNELS["CHANNELS"]["twitter"]

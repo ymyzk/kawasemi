@@ -3,7 +3,7 @@ from codecs import open
 from os import path
 import sys
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 here = path.abspath(path.dirname(__file__))
@@ -48,7 +48,7 @@ classifiers = [
 setup(
     name='django-channels',
     version='0.7.0',
-    packages=['channels', 'channels.backends'],
+    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
     description='A Django library for sending notifications',
