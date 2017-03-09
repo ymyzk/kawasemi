@@ -5,7 +5,7 @@ import requests
 from requests_oauthlib import OAuth1
 
 from .base import BaseChannel
-from channels.exceptions import HttpError
+from ..exceptions import HttpError
 
 
 class TwitterChannel(BaseChannel):
