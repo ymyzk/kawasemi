@@ -1,46 +1,45 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from copy import deepcopy
-try:
-    from unittest import mock
-except ImportError:
-    import mock
 
-from django.conf import settings
-from django.test import TestCase
+import pytest
 import requests
 
 from kawasemi.backends.slack import SlackChannel
 from kawasemi.exceptions import HttpError, ImproperlyConfigured
 
 
-config = settings.CHANNELS["CHANNELS"]["slack"]
+config = {
+    "_backend": "kawasemi.backends.slack.SlackChannel",
+    "url": "url"
+}
 
 
-class SlackChannelTestCase(TestCase):
-    def setUp(self):
-        self.channel = SlackChannel(**config)
+@pytest.fixture()
+def channel():
+    return SlackChannel(**config)
 
+
+class TestSlackChannel(object):
     def test_init(self):
-        with self.assertRaises(ImproperlyConfigured):
+        with pytest.raises(ImproperlyConfigured):
             conf = deepcopy(config)
             conf["icon_emoji"] = ":+1:"
             conf["icon_url"] = "http://www.example.com/"
             SlackChannel(**conf)
 
-    @mock.patch("requests.post")
-    def test_send(self, m):
+    def test_send(self, channel, mocker):
+        post = mocker.patch("requests.post")
         response = requests.Response()
         response.status_code = requests.codes.ok
-        m.return_value = response
+        post.return_value = response
 
-        self.channel.send("Test message.\nhttps://slack.com/")
+        channel.send("Test message.\nhttps://slack.com/")
 
-        self.channel.send("Test message. `unfurl_links=True`\n"
+        channel.send("Test message. `unfurl_links=True`\n"
                           "https://slack.com/",
                           options={"slack": {"unfurl_links": True}})
 
-        self.channel.send("Test message with attachments", options={
+        channel.send("Test message with attachments", options={
             "slack": {
                 "attachments": [
                     {
@@ -74,13 +73,13 @@ class SlackChannelTestCase(TestCase):
             }
         })
 
-    @mock.patch("requests.post")
-    def test_send_fail_invalid_url(self, m):
+    def test_send_fail_invalid_url(self, channel, mocker):
+        post = mocker.patch("requests.post")
         response = requests.Response()
         response.status_code = requests.codes.forbidden
-        m.return_value = response
+        post.return_value = response
 
-        with self.assertRaises(HttpError):
-            self.channel.send("Test message", fail_silently=False)
+        with pytest.raises(HttpError):
+            channel.send("Test message", fail_silently=False)
 
-        self.channel.send("Test message", fail_silently=True)
+        channel.send("Test message", fail_silently=True)

@@ -22,7 +22,10 @@ extras_require = {
         'Sphinx>=1.4,<1.5',
         'sphinx-rtd-theme>=0.1.9,<0.2'
     ],
-    'test': [],
+    'test': [
+        'pytest>=3.0.0,<4.0.0',
+        'pytest-mock>=1.5.0,<2.0.0',
+    ],
     'test:python_version < "3.3"': ['mock>=2.0.0,<3.0.0']
 }
 
