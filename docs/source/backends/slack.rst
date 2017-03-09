@@ -2,7 +2,7 @@ Slack
 =====
 `Slack`_ is a platform for team communication.
 
-django-channels uses `Incoming WebHooks`_ which is one of the `Slack API`_ for sending notifications.
+kawasemi uses `Incoming WebHooks`_ which is one of the `Slack API`_ for sending notifications.
 
 Settings
 --------
@@ -13,12 +13,12 @@ You can obtain a Webhook URL from `this page`_.
    CHANNELS = {
        "CHANNELS": {
            "slack": {
-               "_backend": "channels.backends.slack.SlackChannel",
+               "_backend": "kawasemi.backends.slack.SlackChannel",
                # Required
                # Webhook URL
                "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890",
                # Optional
-               "username": "django-channels",
+               "username": "kawasemi",
                # You can set either icon_url or icon_emoji
                "icon_url": "https://slack.com/img/icons/app-57.png",
                "icon_emoji": ":ghost:",
@@ -41,9 +41,9 @@ For more information on ``attachments``, please refer to `Attachments`_.
 .. image:: slack_attachments_example.png
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Test message with attachments", options={
+   kawasemi.send("Test message with attachments", options={
        "slack": {
            "attachments": [
                {
@@ -83,9 +83,9 @@ For more details on ``unfurl_links``, please refer to `Unfurling`_.
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.", options={
+   kawasemi.send("Sample notification.", options={
        "slack": {
            "unfurl_links": True
        }

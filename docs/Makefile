@@ -91,9 +91,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/django-channels.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/kawasemi.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/django-channels.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/kawasemi.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -110,8 +110,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/django-channels"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/django-channels"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/kawasemi"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/kawasemi"
 	@echo "# devhelp"
 
 .PHONY: epub

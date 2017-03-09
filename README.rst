@@ -1,5 +1,5 @@
-django-channels
-===============
+kawasemi
+========
 .. image:: https://badge.fury.io/py/django-channels.svg
    :target: https://pypi.python.org/pypi/django-channels/
    :alt: PyPI version
@@ -19,11 +19,11 @@ django-channels
    :target: https://requires.io/github/ymyzk/django-channels/requirements/?branch=master
    :alt: Requirements Status
 
-django-channels is a Django library for sending notifications.
+**kawasemi** is a Django library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
 
-**Note:** This should not be confused with the official Django Channels
-project which you can see at https://channels.readthedocs.io/.
+**Note:** This project was named *django-channels*.
+We renamed our project not to be confused with the official `Django Channels`_.
 
 At a Glance
 -----------
@@ -32,9 +32,9 @@ Slack, Twitter, or Yo with a following simple code:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.")
+   kawasemi.send("Sample notification.")
 
 See `Quickstart`_ page for more details.
 
@@ -59,13 +59,13 @@ Installation
 
 .. code-block:: shell
 
-   pip install django-channels
+   pip install kawasemi
 
-Note: Please use the latest version of setuptools & pip
+Note: Please use the latest version of setuptools, pip, and wheel.
 
 .. code-block:: shell
 
-   pip install -U setuptools pip
+   pip install -U setuptools pip wheel
 
 
 Links
@@ -76,3 +76,4 @@ Links
 .. _Documentation: https://django-channels.readthedocs.io/
 .. _GitHub: https://github.com/ymyzk/django-channels
 .. _Quickstart: https://django-channels.readthedocs.io/en/latest/quickstart.html
+.. _Django Channels: https://channels.readthedocs.io/

@@ -7,9 +7,9 @@ You can send a notification to all configured channels with a following code:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.")
+   kawasemi.send("Sample notification.")
 
 Options
 -------
@@ -17,9 +17,9 @@ You can set some options for the each of backends:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.", options={
+   kawasemi.send("Sample notification.", options={
        "hipchat": {
            "color": "green"
        },
@@ -42,10 +42,10 @@ You can handle errors by using ``try`` statement:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
    try:
-       channels.send("Sample notification.")
+       kawasemi.send("Sample notification.")
    except Exception as e:
        print("Error!!")
        print(e)
@@ -54,9 +54,9 @@ You can ignore errors with ``fail_silently`` parameter:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Exceptions are ignored.", fail_silently=True)
+   kawasemi.send("Exceptions are ignored.", fail_silently=True)
 
 Send to a Specific Channel
 --------------------------
@@ -82,4 +82,4 @@ Send a notification to ``channel_1``:
 
 .. code-block:: python
 
-   channel.send("sample notification", channel="channel_1")
+   kawasemi.send("sample notification", channel="channel_1")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# django-channels documentation build configuration file, created by
+# kawasemi documentation build configuration file, created by
 # sphinx-quickstart on Sat Sep 24 16:15:04 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -54,8 +54,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'django-channels'
-copyright = '2015-2016, Yusuke Miyazaki'
+project = 'kawasemi'
+copyright = '2015-2017, Yusuke Miyazaki'
 author = 'Yusuke Miyazaki'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -139,7 +139,7 @@ html_theme = 'sphinx_rtd_theme'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = 'django-channels v0.7.0'
+# html_title = 'kawasemi v0.7.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -239,7 +239,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'django-channelsdoc'
+htmlhelp_basename = 'kawasemidoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -265,7 +265,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'django-channels.tex', 'django-channels Documentation',
+    (master_doc, 'kawasemi.tex', 'kawasemi Documentation',
      'Yusuke Miyazaki', 'manual'),
 ]
 
@@ -307,7 +307,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'django-channels', 'django-channels Documentation',
+    (master_doc, 'kawasemi', 'kawasemi Documentation',
      [author], 1)
 ]
 
@@ -322,8 +322,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'django-channels', 'django-channels Documentation',
-     author, 'django-channels', 'One line description of project.',
+    (master_doc, 'kawasemi', 'kawasemi Documentation',
+     author, 'kawasemi', 'One line description of project.',
      'Miscellaneous'),
 ]
 
