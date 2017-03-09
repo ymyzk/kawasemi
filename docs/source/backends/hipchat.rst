@@ -2,7 +2,7 @@ HipChat
 =======
 `HipChat`_ is hosted group chat and video chat for companies and teams.
 
-django-channels uses one of the `Room API`_ for sending notification to HipChat.
+kawasemi uses one of the `Room API`_ for sending notification to HipChat.
 
 Settings
 --------
@@ -13,7 +13,7 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
    CHANNELS = {
        "CHANNELS": {
            "hipchat": {
-               "_backend": "channels.backends.hipchat.HipChatChannel",
+               "_backend": "kawasemi.backends.hipchat.HipChatChannel",
                # Required
                # Room API ID
                "api_id": "1234567",
@@ -40,9 +40,9 @@ You can specify all options available in the `Room API`_. For instance:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.", options={
+   kawasemi.send("Sample notification.", options={
        "hipchat": {
            "color": "green",
            "notify": False,

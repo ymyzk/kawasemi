@@ -5,7 +5,7 @@ import json
 import requests
 
 from .base import BaseChannel
-from channels.exceptions import HttpError, ImproperlyConfigured
+from ..exceptions import HttpError, ImproperlyConfigured
 
 
 class SlackChannel(BaseChannel):

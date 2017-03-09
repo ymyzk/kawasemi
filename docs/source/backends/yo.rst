@@ -2,7 +2,7 @@ Yo
 ==
 `Yo`_ is the simplest and most efficient communication tool in the world.
 
-django-channels uses one of the `API`_ for sending Yos.
+kawasemi uses one of the `API`_ for sending Yos.
 
 Settings
 --------
@@ -13,7 +13,7 @@ You can obtain an API token from `Yo Dashboard`_.
    CHANNELS = {
        "CHANNELS": {
            "yo": {
-               "_backend": "channels.backends.yo.YoChannel",
+               "_backend": "kawasemi.backends.yo.YoChannel",
                # Required
                # Your API token
                "api_token": environ.get("CHANNELS_YO_API_TOKEN"),
@@ -30,10 +30,10 @@ You can send Yo with text (30 characters max) with Yo API v2.0.
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
    # Yo with text
-   self.channel.send("text")
+   kawasemi.send("text")
 
 
 Options
@@ -42,17 +42,17 @@ You can send Yo Location or Yo Link by specifying options. For example:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
    # Yo Link
-   self.channel.send(None, options={
+   kawasemi.send(None, options={
        "yo": {
            "link": "http://docs.justyo.co/v1.0/docs/yo"
        }
    })
 
    # Yo Location
-   self.channel.send(None, options={
+   kawasemi.send(None, options={
        "yo": {
            "location": "35.0261581,135.7818476"
        }

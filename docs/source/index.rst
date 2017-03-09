@@ -1,6 +1,6 @@
-django-channels
-===============
-django-channels is a Django library for sending notifications.
+kawasemi
+========
+**kawasemi** is a Django library for sending notifications.
 HipChat, Slack, Twitter, and Yo are supported for now.
 
 At a Glance
@@ -10,9 +10,9 @@ you can send notifications to HipChat, Slack, Twitter, or Yo with a following si
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.")
+   kawasemi.send("Sample notification.")
 
 Requirements
 ------------

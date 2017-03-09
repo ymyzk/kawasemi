@@ -2,7 +2,7 @@ Twitter
 =======
 `Twitter`_ is an online social networking service that enables users to send and read short 140-character messages called "tweets".
 
-django-channels uses `one`_ of the `REST APIs`_ for sending tweets.
+kawasemi uses `one`_ of the `REST APIs`_ for sending tweets.
 
 Settings
 --------
@@ -13,7 +13,7 @@ You can obtain keys and access tokens from `Twitter Application Management`_.
    CHANNELS = {
        "CHANNELS": {
            "twitter": {
-                "_backend": "channels.backends.twitter.TwitterChannel",
+                "_backend": "kawasemi.backends.twitter.TwitterChannel",
                 # Required
                 # Consumer Key (API Key)
                 "api_key": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
@@ -33,9 +33,9 @@ You can specify all parameters available in the `API`_. For instance:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample tweet with location.", options={
+   kawasemi.send("Sample tweet with location.", options={
        "twitter": {
            "lat": 37.7821120598956,
            "long": -122.400612831116

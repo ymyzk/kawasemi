@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import requests
 
 from .base import BaseChannel
-from channels.exceptions import HttpError
+from ..exceptions import HttpError
 
 
 class YoChannel(BaseChannel):

@@ -4,19 +4,19 @@ Quickstart
 Installation
 ------------
 
-* Install django-channels with your favorite package manager:
+* Install kawasemi with your favorite package manager:
 
   .. code-block:: shell
 
-     pip install django-channels
+     pip install kawasemi
 
-* Add ``'channels'`` to your ``INSTALLED_APPS`` setting:
+* Add ``'kawasemi'`` to your ``INSTALLED_APPS`` setting:
 
   .. code-block:: python
 
      INSTALLED_APPS = [
          # Other apps
-         'channels',
+         'kawasemi',
      ]
 
 * Add ``CHANNELS`` to your project settings. You must obtain API keys or tokens from each service.
@@ -28,7 +28,7 @@ Installation
        CHANNELS = {
            "CHANNELS": {
                "hipchat": {
-                   "_backend": "channels.backends.hipchat.HipChatChannel",
+                   "_backend": "kawasemi.backends.hipchat.HipChatChannel",
                    "api_id": "1234567",
                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                }
@@ -42,12 +42,12 @@ Installation
        CHANNELS = {
            "CHANNELS": {
                "hipchat": {
-                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                  "_backend": "kawasemi.backends.hipchat.HipChatChannel",
                    "api_id": "1234567",
                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                },
                "slack": {
-                   "_backend": "channels.backends.slack.SlackChannel",
+                   "_backend": "kawasemi.backends.slack.SlackChannel",
                    "url": "https://hooks.slack.com/services/ABCDEF/GHIJKLM/1234567890"
                }
            }
@@ -61,12 +61,12 @@ Installation
        CHANNELS = {
            "CHANNELS": {
                "hipchat_first": {
-                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                  "_backend": "kawasemi.backends.hipchat.HipChatChannel",
                    "api_id": "1234567",
                    "token": "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
                },
                "hipchat_second": {
-                  "_backend": "channels.backends.hipchat.HipChatChannel",
+                  "_backend": "kawasemi.backends.hipchat.HipChatChannel",
                    "api_id": "3456789",
                    "token": "abcdefghijklmnopqrstuvwxyz0987654321"
                }
@@ -79,6 +79,6 @@ You can send notifications with a following simple code:
 
 .. code-block:: python
 
-   import channels
+   import kawasemi
 
-   channels.send("Sample notification.")
+   kawasemi.send("Sample notification.")

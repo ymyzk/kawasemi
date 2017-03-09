@@ -19,7 +19,7 @@ MIDDLEWARE_CLASSES = []
 CHANNELS = {
     "CHANNELS": {
         "hipchat": {
-            "_backend": "channels.backends.hipchat.HipChatChannel",
+            "_backend": "kawasemi.backends.hipchat.HipChatChannel",
             # Required
             "api_id": environ.get("CHANNELS_HIPCHAT_API_ID"),
             "token": environ.get("CHANNELS_HIPCHAT_TOKEN"),
@@ -29,7 +29,7 @@ CHANNELS = {
             "notify": environ.get("CHANNELS_HIPCHAT_NOTIFY") == "True"
         },
         "slack": {
-            "_backend": "channels.backends.slack.SlackChannel",
+            "_backend": "kawasemi.backends.slack.SlackChannel",
             # Required
             "url": environ.get("CHANNELS_SLACK_URL"),
             # Optional
@@ -39,7 +39,7 @@ CHANNELS = {
             "channel": environ.get("CHANNELS_SLACK_CHANNEL")
         },
         "twitter": {
-            "_backend": "channels.backends.twitter.TwitterChannel",
+            "_backend": "kawasemi.backends.twitter.TwitterChannel",
             # Required
             "api_key": environ.get("CHANNELS_TWITTER_API_KEY"),
             "api_secret": environ.get("CHANNELS_TWITTER_API_SECRET"),
@@ -48,7 +48,7 @@ CHANNELS = {
                 environ.get("CHANNELS_TWITTER_ACCESS_TOKEN_SECRET")
         },
         "yo": {
-            "_backend": "channels.backends.yo.YoChannel",
+            "_backend": "kawasemi.backends.yo.YoChannel",
             # Required
             "api_token": environ.get("CHANNELS_YO_API_TOKEN"),
             # Optional

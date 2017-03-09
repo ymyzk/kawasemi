@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.test import TestCase
 
-from channels.backends.base import BaseChannel
+from kawasemi.backends.base import BaseChannel
 
 
 class BaseChannelTestCase(TestCase):
