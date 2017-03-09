@@ -10,7 +10,7 @@ You can obtain a Webhook URL from `this page`_.
 
 .. code-block:: python
 
-   CHANNELS = {
+   KAWASEMI = {
        "CHANNELS": {
            "slack": {
                "_backend": "kawasemi.backends.slack.SlackChannel",

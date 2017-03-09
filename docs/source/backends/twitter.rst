@@ -10,7 +10,7 @@ You can obtain keys and access tokens from `Twitter Application Management`_.
 
 .. code-block:: python
 
-   CHANNELS = {
+   KAWASEMI = {
        "CHANNELS": {
            "twitter": {
                 "_backend": "kawasemi.backends.twitter.TwitterChannel",

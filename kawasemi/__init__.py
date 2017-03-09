@@ -30,7 +30,7 @@ def _load_backend(name):
 
 def _load_django_settings():
     from django.conf import settings
-    return settings.CHANNELS
+    return settings.KAWASEMI
 
 
 def _send(message, settings, channel_name, fail_silently, options):

@@ -19,13 +19,13 @@ Installation
          'kawasemi',
      ]
 
-* Add ``CHANNELS`` to your project settings. You must obtain API keys or tokens from each service.
+* Add ``KAWASEMI`` to your project settings. You must obtain API keys or tokens from each service.
 
   * If you want to send notifications to HipChat:
 
     .. code-block:: python
 
-       CHANNELS = {
+       KAWASEMI = {
            "CHANNELS": {
                "hipchat": {
                    "_backend": "kawasemi.backends.hipchat.HipChatChannel",
@@ -39,7 +39,7 @@ Installation
 
     .. code-block:: python
 
-       CHANNELS = {
+       KAWASEMI = {
            "CHANNELS": {
                "hipchat": {
                   "_backend": "kawasemi.backends.hipchat.HipChatChannel",
@@ -58,7 +58,7 @@ Installation
 
     .. code-block:: python
 
-       CHANNELS = {
+       KAWASEMI = {
            "CHANNELS": {
                "hipchat_first": {
                   "_backend": "kawasemi.backends.hipchat.HipChatChannel",

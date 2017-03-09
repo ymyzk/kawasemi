@@ -10,7 +10,7 @@ You can obtain an API token from `Yo Dashboard`_.
 
 .. code-block:: python
 
-   CHANNELS = {
+   KAWASEMI = {
        "CHANNELS": {
            "yo": {
                "_backend": "kawasemi.backends.yo.YoChannel",

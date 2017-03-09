@@ -10,7 +10,7 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
 
 .. code-block:: python
 
-   CHANNELS = {
+   KAWASEMI = {
        "CHANNELS": {
            "hipchat": {
                "_backend": "kawasemi.backends.hipchat.HipChatChannel",
