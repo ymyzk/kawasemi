@@ -22,7 +22,7 @@ kawasemi
 **kawasemi** is a Django library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
 
-**Note:** This project was named *kawasemi*.
+**Note:** This project was named *django-channels*.
 We renamed our project not to be confused with the official `Django Channels`_.
 
 At a Glance
