@@ -46,7 +46,7 @@ classifiers = [
 
 setup(
     name='kawasemi',
-    version='0.7.0',
+    version='0.8.0',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
