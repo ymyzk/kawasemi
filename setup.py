@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from codecs import open
 from os import path
-import sys
 
 from setuptools import find_packages, setup
 
@@ -46,14 +45,14 @@ classifiers = [
 ]
 
 setup(
-    name='django-channels',
+    name='kawasemi',
     version='0.7.0',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
     description='A Django library for sending notifications',
     long_description=long_description,
-    url='https://github.com/ymyzk/django-channels',
+    url='https://github.com/ymyzk/kawasemi',
     author='Yusuke Miyazaki',
     author_email='miyazaki.dev@gmail.com',
     install_requires=requires,

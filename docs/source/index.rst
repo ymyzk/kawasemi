@@ -51,5 +51,5 @@ Links
 * `Documentation`_
 * `GitHub`_
 
-.. _Documentation: https://django-channels.readthedocs.io/
-.. _GitHub: https://github.com/ymyzk/django-channels
+.. _Documentation: https://kawasemi.readthedocs.io/
+.. _GitHub: https://github.com/ymyzk/kawasemi
