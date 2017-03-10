@@ -3,6 +3,9 @@ kawasemi
 .. image:: https://badge.fury.io/py/kawasemi.svg
    :target: https://pypi.python.org/pypi/kawasemi/
    :alt: PyPI version
+.. image:: https://img.shields.io/pypi/pyversions/Django.svg
+   :target: https://pypi.python.org/pypi/kawasemi/
+   :alt: PyPI Python versions
 .. image:: https://travis-ci.org/ymyzk/kawasemi.svg?branch=master
    :target: https://travis-ci.org/ymyzk/kawasemi
    :alt: Build Status
