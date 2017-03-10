@@ -10,7 +10,7 @@ You can obtain an API token from `Yo Dashboard`_.
 
 .. code-block:: python
 
-   KAWASEMI = {
+   config = {
        "CHANNELS": {
            "yo": {
                "_backend": "kawasemi.backends.yo.YoChannel",
@@ -30,8 +30,6 @@ You can send Yo with text (30 characters max) with Yo API v2.0.
 
 .. code-block:: python
 
-   import kawasemi
-
    # Yo with text
    kawasemi.send("text")
 
@@ -41,8 +39,6 @@ Options
 You can send Yo Location or Yo Link by specifying options. For example:
 
 .. code-block:: python
-
-   import kawasemi
 
    # Yo Link
    kawasemi.send(None, options={

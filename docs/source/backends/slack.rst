@@ -10,7 +10,7 @@ You can obtain a Webhook URL from `this page`_.
 
 .. code-block:: python
 
-   KAWASEMI = {
+   config = {
        "CHANNELS": {
            "slack": {
                "_backend": "kawasemi.backends.slack.SlackChannel",
@@ -40,8 +40,6 @@ For more information on ``attachments``, please refer to `Attachments`_.
 
 .. image:: slack_attachments_example.png
 .. code-block:: python
-
-   import kawasemi
 
    kawasemi.send("Test message with attachments", options={
        "slack": {
@@ -82,8 +80,6 @@ Unfurling
 For more details on ``unfurl_links``, please refer to `Unfurling`_.
 
 .. code-block:: python
-
-   import kawasemi
 
    kawasemi.send("Sample notification.", options={
        "slack": {

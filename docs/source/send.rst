@@ -7,17 +7,20 @@ You can send a notification to all configured channels with a following code:
 
 .. code-block:: python
 
-   import kawasemi
-
+   # Python
+   from kawasemi import Kawasemi
+   kawasemi = Kawasemi(config)
    kawasemi.send("Sample notification.")
+
+   # With Django
+   from kawasemi.django import send
+   send("Sample notification.")
 
 Options
 -------
 You can set some options for the each of backends:
 
 .. code-block:: python
-
-   import kawasemi
 
    kawasemi.send("Sample notification.", options={
        "hipchat": {
@@ -42,8 +45,6 @@ You can handle errors by using ``try`` statement:
 
 .. code-block:: python
 
-   import kawasemi
-
    try:
        kawasemi.send("Sample notification.")
    except Exception as e:
@@ -67,7 +68,7 @@ Example settings:
 
 .. code-block:: python
 
-   CHANNELS = {
+   config = {
        "CHANNELS": {
            "channel_1": {
                # ...
