@@ -53,7 +53,7 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
-    description='A Django library for sending notifications',
+    description='A Python library for sending notifications to services such as Slack, HipChat, Twitter, and so on',
     long_description=long_description,
     url='https://github.com/ymyzk/kawasemi',
     author='Yusuke Miyazaki',

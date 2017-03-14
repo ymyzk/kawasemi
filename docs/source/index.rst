@@ -2,6 +2,7 @@ kawasemi
 ========
 **kawasemi** is a Python library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
+
 kawasemi can be used easily in your Python projects.
 kawasemi also provides integration with web application frameworks which makes it
 more easier to load configurations.
@@ -32,8 +33,8 @@ Python
 * PyPy
 * PyPy3
 
-Django
-^^^^^^
+Supported Frameworks
+^^^^^^^^^^^^^^^^^^^^
 * Django 1.8
 * Django 1.9
 * Django 1.10
