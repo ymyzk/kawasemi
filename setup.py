@@ -22,7 +22,10 @@ extras_require = {
         'Sphinx>=1.4,<1.5',
         'sphinx-rtd-theme>=0.1.9,<0.2'
     ],
-    'test': [],
+    'test': [
+        'pytest>=3.0.0,<4.0.0',
+        'pytest-mock>=1.5.0,<2.0.0',
+    ],
     'test:python_version < "3.3"': ['mock>=2.0.0,<3.0.0']
 }
 
@@ -50,7 +53,7 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
-    description='A Django library for sending notifications',
+    description='A Python library for sending notifications to services such as Slack, HipChat, Twitter, and so on',
     long_description=long_description,
     url='https://github.com/ymyzk/kawasemi',
     author='Yusuke Miyazaki',

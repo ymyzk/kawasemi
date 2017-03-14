@@ -10,7 +10,7 @@ You can obtain keys and access tokens from `Twitter Application Management`_.
 
 .. code-block:: python
 
-   KAWASEMI = {
+   config = {
        "CHANNELS": {
            "twitter": {
                 "_backend": "kawasemi.backends.twitter.TwitterChannel",
@@ -32,8 +32,6 @@ Options
 You can specify all parameters available in the `API`_. For instance:
 
 .. code-block:: python
-
-   import kawasemi
 
    kawasemi.send("Sample tweet with location.", options={
        "twitter": {

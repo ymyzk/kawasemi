@@ -10,7 +10,7 @@ You can obtain a Room API ID and a Room Notification Token from `HipChat Rooms P
 
 .. code-block:: python
 
-   KAWASEMI = {
+   config = {
        "CHANNELS": {
            "hipchat": {
                "_backend": "kawasemi.backends.hipchat.HipChatChannel",
@@ -39,8 +39,6 @@ Options
 You can specify all options available in the `Room API`_. For instance:
 
 .. code-block:: python
-
-   import kawasemi
 
    kawasemi.send("Sample notification.", options={
        "hipchat": {

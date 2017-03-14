@@ -1,6 +1,3 @@
-from os import environ
-
-
 SECRET_KEY = "fake-secret-key"
 
 INSTALLED_APPS = [
@@ -16,7 +13,7 @@ DATABASES = {
 
 MIDDLEWARE_CLASSES = []
 
-CHANNELS = {
+KAWASEMI = {
     "CHANNELS": {
         "hipchat": {
             "_backend": "kawasemi.backends.hipchat.HipChatChannel",

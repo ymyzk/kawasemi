@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
-from django.test import TestCase
+import pytest
 
 from kawasemi.backends.base import BaseChannel
 
 
-class BaseChannelTestCase(TestCase):
+class TestBaseChannel(object):
     def test_init(self):
-        with self.assertRaises(TypeError):
+        with pytest.raises(TypeError):
             BaseChannel()
 
     def test_set_payload_from_options(self):
@@ -25,7 +23,7 @@ class BaseChannelTestCase(TestCase):
         BaseChannel._set_payload_from_options(
             payload, options, "test", payload_keys)
 
-        self.assertEqual(len(payload), len(payload_keys))
+        assert len(payload) == len(payload_keys)
         for key in payload:
-            self.assertTrue(key in payload_keys)
-            self.assertEqual(payload[key], options["test"][key])
+            assert key in payload_keys
+            assert payload[key] == options["test"][key]
