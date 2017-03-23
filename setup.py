@@ -29,7 +29,7 @@ extras_require = {
 }
 
 classifiers = [
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
     'Environment :: Web Environment',
     'Framework :: Django',
     'Intended Audience :: Developers',
@@ -49,7 +49,7 @@ classifiers = [
 
 setup(
     name='kawasemi',
-    version='1.0.0b1',
+    version='1.0.0',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',
