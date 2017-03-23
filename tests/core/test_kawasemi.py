@@ -26,7 +26,6 @@ class TestKawasemi(object):
             kawasemi.send("message", channel_name="not_exists",
                           fail_silently=False, options=None)
 
-    # @mock.patch("kawasemi._load_backend")
     def test__send_all_channels(self, mocker):
         """test case for channel_name=None"""
         settings = {
