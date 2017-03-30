@@ -1,11 +1,23 @@
 #!/usr/bin/env python
 from codecs import open
 from os import path
+import sys
 
 from setuptools import find_packages, setup
 
 
 here = path.abspath(path.dirname(__file__))
+
+def get_version():
+    about_file = path.join(here, 'kawasemi/__about__.py')
+    if sys.version_info[0] >= 3:
+        about = {}
+        with open(about_file) as fp:
+            exec(fp.read(), about)
+        return about['__version__']
+    else:
+        execfile(about_file)
+        return __version__
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
@@ -49,7 +61,7 @@ classifiers = [
 
 setup(
     name='kawasemi',
-    version='1.0.0',
+    version=get_version(),
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
     license='MIT',

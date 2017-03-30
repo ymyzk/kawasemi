@@ -3,9 +3,12 @@ from __future__ import absolute_import, unicode_literals
 import sys
 from typing import Dict, Optional, Text  # noqa: F401
 
+from .__about__ import __version__
 from .backends.base import BaseChannel  # noqa: F401
 from .exceptions import ImproperlyConfigured
 from .types import SendOptions  # noqa: F401
+
+__all__ = ["Kawasemi", "__version__"]
 
 
 class Kawasemi(object):
