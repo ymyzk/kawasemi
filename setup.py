@@ -35,8 +35,15 @@ extras_require = {
         'sphinx-rtd-theme>=0.2,<0.3'
     ],
     'test': [
+        'coverage>=4.3.4,<5.0.0',
+        'coveralls>=1.1,<2.0',
+        'flake8>=3.3.0,<4.0.0',
         'pytest>=3.0.0,<4.0.0',
+        'pytest-cov>=2.4.0,<3.0.0',
         'pytest-mock>=1.5.0,<2.0.0',
+    ],
+    'test:python_version >= "3.3"': [
+        'mypy-lang>=0.4.6,<0.5.0',
     ],
 }
 
