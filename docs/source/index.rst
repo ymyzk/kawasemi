@@ -1,5 +1,9 @@
 kawasemi
 ========
+
+.. image:: kawasemi.png
+   :alt: Kawasemi's logo
+
 **kawasemi** is a Python library for sending notifications.
 HipChat, Slack, Twitter and Yo are supported for now.
 
