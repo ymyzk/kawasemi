@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from abc import ABCMeta, abstractmethod
+from typing import Optional, Text  # noqa: F401
 
 from six import add_metaclass
 

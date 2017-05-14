@@ -1,28 +1,31 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
 import sys
-from typing import Dict, Optional, Text  # noqa: F401
+from typing import Any, Dict, Optional, Text, TypeVar  # noqa: F401
 
 from .__about__ import __version__
-from .backends.base import BaseChannel  # noqa: F401
+from .backends.base import BaseChannel
 from .exceptions import ImproperlyConfigured
 from .types import SendOptions  # noqa: F401
 
 __all__ = ["Kawasemi", "__version__"]
 
 
+C = TypeVar("C", bound=BaseChannel)
+
+
 class Kawasemi(object):
     def __init__(self, settings):
         self.settings = settings
-        self._backends = {}  # type: Dict[str, BaseChannel]
+        self._backends = {}  # type: Dict[str, C]
 
     def _load_module(self, name):
-        # type: (str) -> BaseChannel
+        # type: (str) -> Any
         __import__(name)
         return sys.modules[name]
 
     def _load_backend(self, name):
-        # type: (str) -> BaseChannel
+        # type: (str) -> C
         try:
             return self._backends[name]
         except KeyError:
@@ -53,5 +56,6 @@ class Kawasemi(object):
                 raise ImproperlyConfigured(
                     "Specify the backend class in the channel configuration")
 
-            channel = self._load_backend(config["_backend"])(**config)
+            backend = self._load_backend(config["_backend"])
+            channel = backend(**config)
             channel.send(message, fail_silently=fail_silently, options=options)
