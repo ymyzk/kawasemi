@@ -32,7 +32,7 @@ kawasemi can be used easily in your Python projects.
 kawasemi also provides integration with web application frameworks which makes it
 more easier to load configurations.
 
-**Note:** This project was named *django-channels*.
+Note: This project was named *django-channels*.
 We renamed our project not to be confused with the official `Django Channels`_.
 
 At a Glance
