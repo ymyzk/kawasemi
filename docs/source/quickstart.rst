@@ -1,6 +1,23 @@
 Quickstart
 ==========
 
+Requirements
+------------
+
+Python
+^^^^^^
+* Python 2.7+
+* Python 3.3+
+* PyPy
+* PyPy3
+
+Supported Frameworks
+^^^^^^^^^^^^^^^^^^^^
+* Django 1.8
+* Django 1.9
+* Django 1.10
+* Django 1.11
+
 Installation
 ------------
 Install kawasemi with your favorite package manager:
@@ -8,6 +25,12 @@ Install kawasemi with your favorite package manager:
 .. code-block:: shell
 
    pip install kawasemi
+
+Note: Please use the latest version of setuptools, pip, and wheel.
+
+.. code-block:: shell
+
+   pip install -U setuptools pip wheel
 
 Configurations
 --------------
