@@ -31,7 +31,7 @@ Kawasemi provides the following features:
 
 * Very simple ways to send notification
 
-  * HipChat, Slack, Twitter, and Yo are supported
+  * GitHub, HipChat, Slack, Twitter, and Yo are supported
 
 * Integrations with web application frameworks helps to load configurations
 
@@ -42,8 +42,7 @@ We renamed our project not to be confused with the official `Django Channels`_.
 
 At a Glance
 -----------
-After installation and configuration, you can send notifications to HipChat,
-Slack, Twitter, or Yo with a following simple code:
+After installation and configuration, you can send notifications with a following simple code:
 
 .. code-block:: python
 
