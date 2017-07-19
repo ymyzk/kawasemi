@@ -15,6 +15,7 @@ class GitHubChannel(BaseChannel):
 
     def send(self, message, fail_silently=False, options=None):
         headers = {
+            "Accept": "application/vnd.github.v3+json",
             "Authorization": "token " + self.token,
             "Content-Type": "application/json"
         }
