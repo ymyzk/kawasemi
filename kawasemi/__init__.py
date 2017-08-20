@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
+from copy import deepcopy
 import sys
 from typing import Any, Dict, Optional, Text, TypeVar  # noqa: F401
 
@@ -57,5 +58,7 @@ class Kawasemi(object):
                     "Specify the backend class in the channel configuration")
 
             backend = self._load_backend(config["_backend"])
+            config = deepcopy(config)
+            del config["_backend"]
             channel = backend(**config)
             channel.send(message, fail_silently=fail_silently, options=options)
