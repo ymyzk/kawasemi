@@ -5,5 +5,3 @@ from .__about__ import __version__
 from .kawasemi import Kawasemi
 
 __all__ = ["Kawasemi", "__version__"]
-
-
