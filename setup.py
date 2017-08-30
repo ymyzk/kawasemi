@@ -23,6 +23,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 requires = [
+    'click>=6.0,<7.0',
     'requests>=2.7.0',
     'requests-oauthlib>=0.5.0',
     'six>=1.9.0'
@@ -66,6 +67,12 @@ classifiers = [
     'Topic :: Internet :: WWW/HTTP',
 ]
 
+entry_points = {
+    'console_scripts': [
+        'kawasemi=kawasemi.cli:main',
+    ],
+}
+
 setup(
     name='kawasemi',
     version=get_version(),
@@ -79,5 +86,6 @@ setup(
     author_email='miyazaki.dev@gmail.com',
     install_requires=requires,
     extras_require=extras_require,
+    entry_points=entry_points,
     classifiers=classifiers
 )
