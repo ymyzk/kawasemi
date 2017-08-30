@@ -40,6 +40,7 @@ Contents
 
    quickstart
    send
+   cli
    backends/index
    license
 
