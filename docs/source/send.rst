@@ -83,4 +83,4 @@ Send a notification to ``channel_1``:
 
 .. code-block:: python
 
-   kawasemi.send("sample notification", channel="channel_1")
+   kawasemi.send("sample notification", channel_name="channel_1")
