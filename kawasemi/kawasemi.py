@@ -54,7 +54,7 @@ class Kawasemi(object):
                 raise ImproperlyConfigured(
                     "Specify the backend class in the channel configuration")
 
-            backend = self._load_backend(config["_backend"])
+            backend = self._load_backend(config["_backend"])  # type: Any
             config = deepcopy(config)
             del config["_backend"]
             channel = backend(**config)
