@@ -57,6 +57,6 @@ class HipChatChannel(BaseChannel):
                                      data=json.dumps(payload))
             if response.status_code != requests.codes.no_content:
                 raise HttpError(response.status_code, response.text)
-        except:
+        except Exception:
             if not fail_silently:
                 raise

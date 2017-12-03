@@ -33,6 +33,6 @@ class YoChannel(BaseChannel):
             response = requests.post(self.url, data=payload)
             if response.status_code != requests.codes.ok:
                 raise HttpError(response.status_code, response.text)
-        except:
+        except Exception:
             if not fail_silently:
                 raise
