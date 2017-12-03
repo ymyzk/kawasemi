@@ -7,7 +7,7 @@ Requirements
 Python
 ^^^^^^
 * Python 2.7+
-* Python 3.3+
+* Python 3.4+
 * PyPy
 * PyPy3
 
@@ -15,6 +15,7 @@ Supported Frameworks
 ^^^^^^^^^^^^^^^^^^^^
 * Django 1.8
 * Django 1.11
+* Django 2.0
 
 Installation
 ------------
