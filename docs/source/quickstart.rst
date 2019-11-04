@@ -15,6 +15,8 @@ Supported Frameworks
 ^^^^^^^^^^^^^^^^^^^^
 * Django 1.11
 * Django 2.0
+* Django 2.1
+* Django 2.2
 
 Installation
 ------------
