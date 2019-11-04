@@ -7,7 +7,7 @@ Requirements
 Python
 ^^^^^^
 * Python 2.7+
-* Python 3.4+
+* Python 3.5+
 * PyPy
 * PyPy3
 
