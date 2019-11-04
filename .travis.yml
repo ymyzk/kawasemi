@@ -1,9 +1,10 @@
 language: python
 python:
   - 2.7
-  - 3.4
   - 3.5
   - 3.6
+  - 3.7
+  - 3.8
 install:
   - pip install -U pip setuptools wheel
   - pip install 'tox>=2.0.0,<3.0.0' 'tox-travis>=0.8,<1.0'
