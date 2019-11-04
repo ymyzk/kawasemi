@@ -13,7 +13,6 @@ Python
 
 Supported Frameworks
 ^^^^^^^^^^^^^^^^^^^^
-* Django 1.8
 * Django 1.11
 * Django 2.0
 
